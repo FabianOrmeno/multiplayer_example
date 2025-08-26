@@ -1,0 +1,93 @@
+[gd_scene load_steps=11 format=3 uid="uid://de2iebf1cc3t7"]
+
+[ext_resource type="Script" uid="uid://bvnrvo0kyen53" path="res://scenes/fireball.gd" id="1_1gl40"]
+[ext_resource type="Texture2D" uid="uid://bwsfrebr335u8" path="res://assets/Fire Effect and Bullet 16x16.png" id="2_cb14k"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7kba2"]
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_43lgj"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 0
+properties/1/path = NodePath(".:rotation")
+properties/1/spawn = true
+properties/1/replication_mode = 0
+
+[sub_resource type="Animation" id="Animation_vqoxj"]
+resource_name = "fire"
+length = 0.6
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+
+[sub_resource type="Animation" id="Animation_86oub"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qaphm"]
+_data = {
+&"RESET": SubResource("Animation_86oub"),
+&"fire": SubResource("Animation_vqoxj")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_mi4h5"]
+animation = &"fire"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_wyo3q"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_1fb5b"]
+states/fire/node = SubResource("AnimationNodeAnimation_mi4h5")
+states/fire/position = Vector2(288, 135)
+transitions = ["Start", "fire", SubResource("AnimationNodeStateMachineTransition_wyo3q")]
+graph_offset = Vector2(-16, 0)
+
+[node name="Hitbox" type="Area2D"]
+script = ExtResource("1_1gl40")
+metadata/_custom_type_script = "uid://bms2suq061atj"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CircleShape2D_7kba2")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_43lgj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(9, -1)
+rotation = -1.5708
+texture = ExtResource("2_cb14k")
+hframes = 3
+region_enabled = true
+region_rect = Rect2(158.567, 160.006, 49.7064, 32.1398)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_qaphm")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_1fb5b")
+anim_player = NodePath("../AnimationPlayer")
