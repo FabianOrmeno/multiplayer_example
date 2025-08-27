@@ -4,7 +4,7 @@ extends CharacterBody2D
 signal dot_spawn_requested
 
 @export var max_speed: int = 100
-@export var acceleration: int = 400
+@export var acceleration: int = 800
 @export var bullet_scene: PackedScene
 
 @onready var label: Label = $Label
@@ -20,6 +20,26 @@ signal dot_spawn_requested
 
 var picked_node = null
 var pickable: Node2D
+
+var animation_state: String = "idle_"
+var animation_direction: String = "down"
+
+func update_sprite_direction(input: Vector2) -> void:
+	match input:
+		Vector2.DOWN:
+			animation_direction = "down"
+		Vector2.UP:
+			animation_direction = "up"
+		Vector2.LEFT:
+			animation_direction = "left"
+		Vector2.RIGHT:
+			animation_direction = "right"
+
+func update_sprite()-> void:
+	if velocity.length() > 0:
+		animation_state = "move_"
+	else:
+		animation_state = "idle_"
 
 func _ready() -> void:
 	
@@ -38,10 +58,9 @@ func _physics_process(delta: float) -> void:
 			primary_action()
 		sword.rotation = global_position.direction_to(get_global_mouse_position()).angle()
 		
-	if move_input or velocity.length_squared() > 100:
-		playback.travel("run")
-	else:
-		playback.travel("idle")
+	update_sprite_direction(move_input)
+	update_sprite()
+	playback.travel(animation_state + animation_direction)
 	
 	#if is_multiplayer_authority():
 		#if Input.is_action_just_pressed("click"):
