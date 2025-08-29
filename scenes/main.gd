@@ -3,19 +3,28 @@ extends Node2D
 @export var player_scene: PackedScene
 @export var dot_scene: PackedScene
 @export var mage_scene: PackedScene
-
+@export var warrior_scene: PackedScene
+@export var archer_scene: PackedScene
 @onready var players: Node2D = $Players
 @onready var markers: Node2D = $Markers
 
 
 func _ready() -> void:
+	var count = 0;
 	for i in Game.players.size():
 		var player_data = Game.players[i]
-		var player_inst = mage_scene.instantiate()
+		var player_inst
+		if count == 0:
+			player_inst = warrior_scene.instantiate()
+		elif count == 1:
+			player_inst = mage_scene.instantiate()
+		else:
+			player_inst = archer_scene.instantiate()
 		players.add_child(player_inst)
 		player_inst.global_position = markers.get_child(i).global_position
 		player_inst.setup(player_data)
 		player_inst.dot_spawn_requested.connect(_on_dot_spawn)
+		count += 1
 	await get_tree().create_timer(5).timeout
 	Debug.log(get_tree().get_nodes_in_group("player").size())
 

@@ -5,8 +5,8 @@
 [ext_resource type="Script" uid="uid://bms2suq061atj" path="res://components/hitbox.gd" id="3_1yp6w"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dwvek"]
-radius = 6.0
-height = 60.0
+radius = 4.0
+height = 26.0
 
 [sub_resource type="Animation" id="Animation_r76a6"]
 length = 0.001
@@ -80,26 +80,27 @@ properties/1/spawn = true
 properties/1/replication_mode = 1
 
 [node name="Sword" type="Node2D"]
-position = Vector2(25, 0)
 script = ExtResource("1_s4ec8")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(25, 0)
-scale = Vector2(0.5625, 0.046875)
+position = Vector2(27, 0)
+scale = Vector2(0.210938, 0.0234375)
 texture = ExtResource("2_k5whp")
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
-scale = Vector2(0.0625, 0.203125)
+position = Vector2(18, 5.96046e-08)
+scale = Vector2(0.015625, 0.0859375)
 texture = ExtResource("2_k5whp")
 
 [node name="Hitbox" type="Area2D" parent="."]
+position = Vector2(23.5, 0.5)
 collision_layer = 4
 collision_mask = 4
 script = ExtResource("3_1yp6w")
 metadata/_custom_type_script = "uid://bms2suq061atj"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-position = Vector2(33, 0)
+position = Vector2(7.5, -0.5)
 rotation = -1.5708
 shape = SubResource("CapsuleShape2D_dwvek")
 disabled = true

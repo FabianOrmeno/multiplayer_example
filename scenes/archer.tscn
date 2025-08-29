@@ -1,16 +1,17 @@
-[gd_scene load_steps=53 format=3 uid="uid://bnu6a7h55bbc7"]
+[gd_scene load_steps=54 format=3 uid="uid://jy540f44o2yf"]
 
-[ext_resource type="Script" uid="uid://c1sc3v50n8v5n" path="res://scenes/mage.gd" id="1_yb71v"]
-[ext_resource type="PackedScene" uid="uid://de2iebf1cc3t7" path="res://scenes/fireball.tscn" id="2_nc4w5"]
-[ext_resource type="Texture2D" uid="uid://3pnc53x7fd5v" path="res://assets/character_5_frame32x32.png" id="2_t2cfv"]
-[ext_resource type="Script" uid="uid://6yht3jk70p8w" path="res://components/hurtbox.gd" id="3_yb71v"]
-[ext_resource type="PackedScene" uid="uid://biw121ov2y2lk" path="res://scenes/input_synchronizer.tscn" id="4_r5lxc"]
-[ext_resource type="PackedScene" uid="uid://de6vap0mvx1dp" path="res://scenes/sword.tscn" id="5_yb71v"]
+[ext_resource type="Script" uid="uid://bnk17avlc8ydn" path="res://scenes/archer.gd" id="1_ejvcm"]
+[ext_resource type="Texture2D" uid="uid://dnij2foc5ir7i" path="res://assets/character_17_frame32x32.png" id="2_c85qa"]
+[ext_resource type="PackedScene" uid="uid://euigjgxynrla" path="res://scenes/arrow.tscn" id="2_vlvv2"]
+[ext_resource type="Script" uid="uid://6yht3jk70p8w" path="res://components/hurtbox.gd" id="3_vlvv2"]
+[ext_resource type="PackedScene" uid="uid://biw121ov2y2lk" path="res://scenes/input_synchronizer.tscn" id="4_d71b8"]
+[ext_resource type="PackedScene" uid="uid://de6vap0mvx1dp" path="res://scenes/sword.tscn" id="5_mak8i"]
+[ext_resource type="PackedScene" uid="uid://c5obd4lkhdur4" path="res://scenes/bow.tscn" id="7_vlvv2"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_nc4w5"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_1s68y"]
 radius = 5.09902
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p0roq"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_88c65"]
 radius = 4.99977
 height = 15.9993
 
@@ -222,7 +223,7 @@ _data = {
 &"run": SubResource("Animation_66amf")
 }
 
-[sub_resource type="LabelSettings" id="LabelSettings_t2cfv"]
+[sub_resource type="LabelSettings" id="LabelSettings_6mylm"]
 font_size = 20
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_nc4w5"]
@@ -292,7 +293,7 @@ advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_xev1i"]
 
-[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_66amf"]
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_vbhtm"]
 states/Start/position = Vector2(189, 100)
 states/idle_down/node = SubResource("AnimationNodeAnimation_nc4w5")
 states/idle_down/position = Vector2(349, 100)
@@ -313,36 +314,36 @@ states/move_up/position = Vector2(609, 373)
 transitions = ["Start", "idle_down", SubResource("AnimationNodeStateMachineTransition_yunhw"), "idle_down", "move_down", SubResource("AnimationNodeStateMachineTransition_fi4q4"), "idle_down", "move_left", SubResource("AnimationNodeStateMachineTransition_1pdv6"), "idle_down", "move_right", SubResource("AnimationNodeStateMachineTransition_qtcmm"), "idle_down", "move_up", SubResource("AnimationNodeStateMachineTransition_ut8cs"), "move_down", "idle_down", SubResource("AnimationNodeStateMachineTransition_ad11k"), "move_left", "idle_left", SubResource("AnimationNodeStateMachineTransition_5qy3h"), "move_right", "idle_right", SubResource("AnimationNodeStateMachineTransition_t4vt2"), "move_up", "idle_up", SubResource("AnimationNodeStateMachineTransition_bgq4w"), "idle_left", "move_down", SubResource("AnimationNodeStateMachineTransition_1v1g5"), "idle_left", "move_left", SubResource("AnimationNodeStateMachineTransition_8wtao"), "idle_left", "move_right", SubResource("AnimationNodeStateMachineTransition_kpj5n"), "idle_left", "move_up", SubResource("AnimationNodeStateMachineTransition_xkn1f"), "idle_right", "move_right", SubResource("AnimationNodeStateMachineTransition_8phwc"), "idle_right", "move_down", SubResource("AnimationNodeStateMachineTransition_b1ljq"), "idle_right", "move_left", SubResource("AnimationNodeStateMachineTransition_khq4v"), "idle_right", "move_up", SubResource("AnimationNodeStateMachineTransition_u76fy"), "idle_up", "move_up", SubResource("AnimationNodeStateMachineTransition_d62h7"), "idle_up", "move_right", SubResource("AnimationNodeStateMachineTransition_1tcfv"), "idle_up", "move_left", SubResource("AnimationNodeStateMachineTransition_ykw3w"), "idle_up", "move_down", SubResource("AnimationNodeStateMachineTransition_xev1i")]
 graph_offset = Vector2(-30, 20)
 
-[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_yb71v"]
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_74jyu"]
 properties/0/path = NodePath(".:position")
 properties/0/spawn = true
 properties/0/replication_mode = 1
 
-[node name="Mage" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D"]
 motion_mode = 1
-script = ExtResource("1_yb71v")
-bullet_scene = ExtResource("2_nc4w5")
+script = ExtResource("1_ejvcm")
+bullet_scene = ExtResource("2_vlvv2")
 metadata/_custom_type_script = "uid://c3g0gk37yr2r2"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 rotation = 0.00226489
-texture = ExtResource("2_t2cfv")
+texture = ExtResource("2_c85qa")
 hframes = 3
 vframes = 4
 frame = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 0.00733251
-shape = SubResource("CircleShape2D_nc4w5")
+shape = SubResource("CircleShape2D_1s68y")
 
 [node name="Hurtbox" type="Area2D" parent="."]
-script = ExtResource("3_yb71v")
+script = ExtResource("3_vlvv2")
 metadata/_custom_type_script = "uid://6yht3jk70p8w"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
 position = Vector2(0, -3)
 rotation = -0.00964498
-shape = SubResource("CapsuleShape2D_p0roq")
+shape = SubResource("CapsuleShape2D_88c65")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
@@ -360,19 +361,21 @@ offset_top = -54.0
 offset_right = 175.0
 offset_bottom = -26.0
 text = "asdads"
-label_settings = SubResource("LabelSettings_t2cfv")
+label_settings = SubResource("LabelSettings_6mylm")
 horizontal_alignment = 1
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource("AnimationNodeStateMachine_66amf")
+tree_root = SubResource("AnimationNodeStateMachine_vbhtm")
 anim_player = NodePath("../AnimationPlayer")
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
-replication_config = SubResource("SceneReplicationConfig_yb71v")
+replication_config = SubResource("SceneReplicationConfig_74jyu")
 
-[node name="InputSynchronizer" parent="." instance=ExtResource("4_r5lxc")]
+[node name="InputSynchronizer" parent="." instance=ExtResource("4_d71b8")]
 
-[node name="Sword" parent="." instance=ExtResource("5_yb71v")]
+[node name="Sword" parent="." instance=ExtResource("5_mak8i")]
 
 [node name="BulletSpawner" type="MultiplayerSpawner" parent="."]
 spawn_path = NodePath(".")
+
+[node name="Node2D" parent="." instance=ExtResource("7_vlvv2")]

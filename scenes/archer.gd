@@ -1,6 +1,6 @@
 extends Player
-class_name  Mage
+class_name Archer
 
 func primary_action():
-	Debug.log("maguito")
+	Debug.log("Arquero")
 	fire_server.rpc_id(1, get_global_mouse_position())

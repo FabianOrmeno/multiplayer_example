@@ -6,6 +6,7 @@ signal dot_spawn_requested
 @export var max_speed: int = 100
 @export var acceleration: int = 800
 @export var bullet_scene: PackedScene
+@export var weapon_scene: PackedScene
 
 @onready var label: Label = $Label
 @onready var multiplayer_synchronizer: MultiplayerSynchronizer = $MultiplayerSynchronizer
@@ -55,7 +56,7 @@ func _physics_process(delta: float) -> void:
 	
 	if is_multiplayer_authority():
 		if Input.is_action_just_pressed("click"):
-			primary_action()
+			self.primary_action()
 		sword.rotation = global_position.direction_to(get_global_mouse_position()).angle()
 		
 	update_sprite_direction(move_input)
@@ -91,7 +92,7 @@ func take_damage(damage: int):
 	Debug.log("Auch %d" % damage)
 
 func primary_action():
-	fire_server.rpc_id(1, get_global_mouse_position())
+	Debug.log("Auch")
 
 func secundary_action():
 	pass
