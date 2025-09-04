@@ -8,6 +8,9 @@ signal dot_spawn_requested
 @export var bullet_scene: PackedScene
 @export var weapon_scene: PackedScene
 
+@export var max_health: int = 100
+
+
 @onready var label: Label = $Label
 @onready var multiplayer_synchronizer: MultiplayerSynchronizer = $MultiplayerSynchronizer
 @onready var input_synchronizer: InputSynchronizer = $InputSynchronizer
@@ -18,6 +21,10 @@ signal dot_spawn_requested
 @onready var camera_2d: Camera2D = $Camera2D
 @onready var pickable_area_2d: Area2D = $PickableArea2D
 @onready var pickable_marker_2d: Marker2D = $PickableMarker2D
+
+
+var health: int = 0
+
 
 var picked_node = null
 var pickable: Node2D
@@ -43,7 +50,8 @@ func update_sprite()-> void:
 		animation_state = "idle_"
 
 func _ready() -> void:
-	
+	health = max_health
+
 	if bullet_scene:
 		bullet_spawner.add_spawnable_scene(bullet_scene.resource_path)
 
@@ -89,7 +97,21 @@ func send_pos(pos):
 	
 
 func take_damage(damage: int):
-	Debug.log("Auch %d" % damage)
+	if not is_multiplayer_authority():
+		return
+	if health == 0:
+		health = max_health
+	health = max(0, health - damage)
+	Debug.log("Player HP: %d" % health)
+	if health == 0:
+		die.rpc()
+
+@rpc("authority", "call_local", "reliable")
+func die():
+	Debug.log("Player died")
+	if is_inside_tree():
+		queue_free()
+
 
 func primary_action():
 	Debug.log("Auch")
