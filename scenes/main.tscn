@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://cyjxojx3jo8wi"]
+[gd_scene load_steps=22 format=4 uid="uid://cyjxojx3jo8wi"]
 
 [ext_resource type="Script" uid="uid://djd6qfqjfysf1" path="res://scenes/main.gd" id="1_o5qli"]
 [ext_resource type="PackedScene" uid="uid://df84bjfdlp4lx" path="res://scenes/player.tscn" id="2_0wfyh"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://dqkbp8vsyjkkf" path="res://assets/walls_floor.png" id="7_tipki"]
 [ext_resource type="Texture2D" uid="uid://bquxmnn2uqsmw" path="res://assets/Water_coasts_animation.png" id="8_85g3d"]
 [ext_resource type="PackedScene" uid="uid://bf4n820m60exh" path="res://scenes/frog.tscn" id="10_choun"]
+[ext_resource type="PackedScene" uid="uid://b5k4ck7werhqb" path="res://scenes/torch.tscn" id="11_ya4ey"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ya4ey"]
 texture = ExtResource("8_85g3d")
@@ -3325,3 +3326,9 @@ position = Vector2(435, -66)
 [node name="Enemy2" parent="." instance=ExtResource("10_choun")]
 position = Vector2(307, 116)
 scale = Vector2(0.75, 0.75)
+
+[node name="Sprite2D" parent="." instance=ExtResource("11_ya4ey")]
+position = Vector2(223, 129)
+
+[node name="Sprite2D2" parent="." instance=ExtResource("11_ya4ey")]
+position = Vector2(303, 173)
