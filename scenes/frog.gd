@@ -16,7 +16,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if not is_multiplayer_authority():
 		return
-
+		
 	_cooldown = max(0.0, _cooldown - delta)
 	var target := _find_target()
 
@@ -55,4 +55,3 @@ func _do_attack() -> void:
 
 	if is_instance_valid(hitbox_shape):
 		hitbox_shape.disabled = true
-		

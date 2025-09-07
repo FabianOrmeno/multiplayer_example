@@ -95,8 +95,13 @@ func test():
 func send_pos(pos):
 	position = pos
 	
-
 func take_damage(damage: int):
+	if not multiplayer.is_server():
+		return
+	take_damage_local.rpc_id(get_multiplayer_authority(), damage)
+
+@rpc("any_peer", "call_local", "reliable")
+func take_damage_local(damage: int):
 	if not is_multiplayer_authority():
 		return
 	if health == 0:
