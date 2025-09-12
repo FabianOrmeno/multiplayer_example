@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://bnvk3myekg8id"]
+
+[ext_resource type="Script" uid="uid://ovg5d3jithqq" path="res://scenes/shield.gd" id="1_e3gf5"]
+[ext_resource type="Texture2D" uid="uid://n6sxl2jtqapl" path="res://assets/1px All.png" id="1_ohv3a"]
+[ext_resource type="Script" uid="uid://bms2suq061atj" path="res://components/hitbox.gd" id="1_vtru8"]
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_ygrb2"]
+properties/0/path = NodePath(".:rotation")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath(".:position")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+properties/2/path = NodePath(".:visible")
+properties/2/spawn = true
+properties/2/replication_mode = 1
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ohv3a"]
+
+[node name="shield" type="Node2D"]
+script = ExtResource("1_e3gf5")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_ygrb2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(22, 0)
+texture = ExtResource("1_ohv3a")
+region_enabled = true
+region_rect = Rect2(134.89, 51.7091, 12.139, 12.0869)
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 128
+collision_mask = 128
+script = ExtResource("1_vtru8")
+metadata/_custom_type_script = "uid://bms2suq061atj"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(22, 0)
+shape = SubResource("CircleShape2D_ohv3a")
