@@ -1,11 +1,10 @@
-[gd_scene load_steps=54 format=3 uid="uid://jy540f44o2yf"]
+[gd_scene load_steps=53 format=3 uid="uid://jy540f44o2yf"]
 
 [ext_resource type="Script" uid="uid://bnk17avlc8ydn" path="res://scenes/archer.gd" id="1_ejvcm"]
 [ext_resource type="Texture2D" uid="uid://dnij2foc5ir7i" path="res://assets/character_17_frame32x32.png" id="2_c85qa"]
 [ext_resource type="PackedScene" uid="uid://euigjgxynrla" path="res://scenes/arrow.tscn" id="2_vlvv2"]
 [ext_resource type="Script" uid="uid://6yht3jk70p8w" path="res://components/hurtbox.gd" id="3_vlvv2"]
 [ext_resource type="PackedScene" uid="uid://biw121ov2y2lk" path="res://scenes/input_synchronizer.tscn" id="4_d71b8"]
-[ext_resource type="PackedScene" uid="uid://de6vap0mvx1dp" path="res://scenes/sword.tscn" id="5_mak8i"]
 [ext_resource type="PackedScene" uid="uid://c5obd4lkhdur4" path="res://scenes/bow.tscn" id="7_vlvv2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1s68y"]
@@ -324,6 +323,7 @@ y_sort_enabled = true
 motion_mode = 1
 script = ExtResource("1_ejvcm")
 bullet_scene = ExtResource("2_vlvv2")
+weapon_scene = ExtResource("7_vlvv2")
 metadata/_custom_type_script = "uid://c3g0gk37yr2r2"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -375,9 +375,5 @@ replication_config = SubResource("SceneReplicationConfig_74jyu")
 
 [node name="InputSynchronizer" parent="." instance=ExtResource("4_d71b8")]
 
-[node name="Sword" parent="." instance=ExtResource("5_mak8i")]
-
 [node name="BulletSpawner" type="MultiplayerSpawner" parent="."]
 spawn_path = NodePath(".")
-
-[node name="Node2D" parent="." instance=ExtResource("7_vlvv2")]

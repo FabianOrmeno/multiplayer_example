@@ -1,11 +1,10 @@
-[gd_scene load_steps=53 format=3 uid="uid://bnu6a7h55bbc7"]
+[gd_scene load_steps=52 format=3 uid="uid://bnu6a7h55bbc7"]
 
 [ext_resource type="Script" uid="uid://c1sc3v50n8v5n" path="res://scenes/mage.gd" id="1_yb71v"]
 [ext_resource type="PackedScene" uid="uid://de2iebf1cc3t7" path="res://scenes/fireball.tscn" id="2_nc4w5"]
 [ext_resource type="Texture2D" uid="uid://3pnc53x7fd5v" path="res://assets/character_5_frame32x32.png" id="2_t2cfv"]
 [ext_resource type="Script" uid="uid://6yht3jk70p8w" path="res://components/hurtbox.gd" id="3_yb71v"]
 [ext_resource type="PackedScene" uid="uid://biw121ov2y2lk" path="res://scenes/input_synchronizer.tscn" id="4_r5lxc"]
-[ext_resource type="PackedScene" uid="uid://de6vap0mvx1dp" path="res://scenes/sword.tscn" id="5_yb71v"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nc4w5"]
 radius = 5.09902
@@ -373,8 +372,6 @@ anim_player = NodePath("../AnimationPlayer")
 replication_config = SubResource("SceneReplicationConfig_yb71v")
 
 [node name="InputSynchronizer" parent="." instance=ExtResource("4_r5lxc")]
-
-[node name="Sword" parent="." instance=ExtResource("5_yb71v")]
 
 [node name="BulletSpawner" type="MultiplayerSpawner" parent="."]
 spawn_path = NodePath(".")
