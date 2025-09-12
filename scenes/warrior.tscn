@@ -321,6 +321,7 @@ properties/0/replication_mode = 1
 y_sort_enabled = true
 motion_mode = 1
 script = ExtResource("1_jq62g")
+weapon_scene = ExtResource("5_utaup")
 metadata/_custom_type_script = "uid://c3g0gk37yr2r2"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -371,8 +372,6 @@ horizontal_alignment = 1
 replication_config = SubResource("SceneReplicationConfig_3stqy")
 
 [node name="InputSynchronizer" parent="." instance=ExtResource("4_iq265")]
-
-[node name="Sword" parent="." instance=ExtResource("5_utaup")]
 
 [node name="BulletSpawner" type="MultiplayerSpawner" parent="."]
 spawn_path = NodePath(".")

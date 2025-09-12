@@ -31,6 +31,7 @@ var pickable: Node2D
 
 var animation_state: String = "idle_"
 var animation_direction: String = "down"
+var weapon: Node2D
 
 func update_sprite_direction(input: Vector2) -> void:
 	match input:
@@ -51,6 +52,11 @@ func update_sprite()-> void:
 
 func _ready() -> void:
 	health = max_health
+	
+	if weapon_scene:
+		weapon = weapon_scene.instantiate()
+		add_child(weapon)
+		
 
 	if bullet_scene:
 		bullet_spawner.add_spawnable_scene(bullet_scene.resource_path)
@@ -65,7 +71,9 @@ func _physics_process(delta: float) -> void:
 	if is_multiplayer_authority():
 		if Input.is_action_just_pressed("click"):
 			self.primary_action()
-		sword.rotation = global_position.direction_to(get_global_mouse_position()).angle()
+		if weapon_scene:
+			weapon.rotation = global_position.direction_to(get_global_mouse_position()).angle()
+		
 		
 	update_sprite_direction(move_input)
 	update_sprite()
@@ -82,9 +90,10 @@ func setup(player_data: Statics.PlayerData):
 	set_multiplayer_authority(player_data.id, false)
 	multiplayer_synchronizer.set_multiplayer_authority(player_data.id, false)
 	input_synchronizer.set_multiplayer_authority(player_data.id, false)
-	sword.setup(player_data)
 	camera_2d.enabled = is_multiplayer_authority()
-
+	if weapon_scene:
+		weapon.setup(player_data)
+	
 
 
 @rpc("any_peer", "call_local", "reliable")
@@ -139,7 +148,9 @@ func fire_server(pos):
 
 @rpc("authority", "call_local", "reliable")
 func swing():
-	sword.swing()
+	if weapon_scene:
+		if weapon.has_method("swing"):
+			weapon.swing()
 
 func _on_pickable_body_entered(body: Node2D):
 	if picked_node:
