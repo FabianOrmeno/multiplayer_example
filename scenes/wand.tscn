@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://c3r6kmul65g8v"]
+
+[ext_resource type="Script" uid="uid://b2ni58x5imnue" path="res://scenes/wand.gd" id="1_nrc3s"]
+[ext_resource type="Texture2D" uid="uid://cyny3o24klcy2" path="res://assets/Elementstäbe.png" id="2_ran2g"]
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_wv8if"]
+properties/0/path = NodePath(".:rotation")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath(".:position")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_nrc3s")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_wv8if")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(15, 0)
+rotation = 1.5707964
+texture = ExtResource("2_ran2g")
+hframes = 6
+vframes = 5
+frame = 12

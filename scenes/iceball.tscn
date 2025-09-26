@@ -1,11 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://de2iebf1cc3t7"]
+[gd_scene load_steps=11 format=3 uid="uid://b3ttx4o2c3k5e"]
 
-[ext_resource type="Script" uid="uid://bvnrvo0kyen53" path="res://scenes/fireball.gd" id="1_1gl40"]
-[ext_resource type="Texture2D" uid="uid://bwsfrebr335u8" path="res://assets/Fire Effect and Bullet 16x16.png" id="2_cb14k"]
+[ext_resource type="Script" uid="uid://k6vd4026ysfp" path="res://scenes/iceball.gd" id="1_5vlvf"]
+[ext_resource type="Texture2D" uid="uid://dy2uwdf4i4ps2" path="res://assets/Water Effect and Bullet 16x16.png" id="2_5vlvf"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_7kba2"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_jiduj"]
 
-[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_43lgj"]
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_rkwx7"]
 properties/0/path = NodePath(".:position")
 properties/0/spawn = true
 properties/0/replication_mode = 0
@@ -58,7 +58,7 @@ animation = &"fire"
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_wyo3q"]
 advance_mode = 2
 
-[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_1fb5b"]
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_sn5wa"]
 states/fire/node = SubResource("AnimationNodeAnimation_mi4h5")
 states/fire/position = Vector2(288, 135)
 transitions = ["Start", "fire", SubResource("AnimationNodeStateMachineTransition_wyo3q")]
@@ -67,24 +67,25 @@ graph_offset = Vector2(-16, 0)
 [node name="Hitbox" type="Area2D"]
 collision_layer = 4
 collision_mask = 4
-script = ExtResource("1_1gl40")
+script = ExtResource("1_5vlvf")
+damage = 20
 metadata/_custom_type_script = "uid://bms2suq061atj"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(18, -2)
+position = Vector2(18, 0)
 rotation = 1.5708
-shape = SubResource("CircleShape2D_7kba2")
+shape = SubResource("CircleShape2D_jiduj")
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
-replication_config = SubResource("SceneReplicationConfig_43lgj")
+replication_config = SubResource("SceneReplicationConfig_rkwx7")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(9, -1)
+position = Vector2(9, 0)
 rotation = -1.5708
-texture = ExtResource("2_cb14k")
+texture = ExtResource("2_5vlvf")
 hframes = 3
 region_enabled = true
-region_rect = Rect2(158.567, 160.006, 49.7064, 32.1398)
+region_rect = Rect2(50, 1, 43, 31)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -92,5 +93,5 @@ libraries = {
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource("AnimationNodeStateMachine_1fb5b")
+tree_root = SubResource("AnimationNodeStateMachine_sn5wa")
 anim_player = NodePath("../AnimationPlayer")

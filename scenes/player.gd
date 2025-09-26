@@ -9,7 +9,7 @@ signal dot_spawn_requested
 @export var weapon_scene: PackedScene
 
 @export var max_health: int = 100
-
+@export var bullets: Dictionary[String, PackedScene]
 
 @onready var label: Label = $Label
 @onready var multiplayer_synchronizer: MultiplayerSynchronizer = $MultiplayerSynchronizer
@@ -60,6 +60,8 @@ func _ready() -> void:
 
 	if bullet_scene:
 		bullet_spawner.add_spawnable_scene(bullet_scene.resource_path)
+	for bullet in bullets.values():
+		bullet_spawner.add_spawnable_scene(bullet.resource_path)
 
 
 func _physics_process(delta: float) -> void:
@@ -74,7 +76,7 @@ func _physics_process(delta: float) -> void:
 		if weapon_scene:
 			weapon.rotation = global_position.direction_to(get_global_mouse_position()).angle()
 		if Input.is_action_just_pressed("second action"):
-			self.secondary_action()
+			self.secundary_action()
 		
 		
 	update_sprite_direction(move_input)
@@ -131,21 +133,21 @@ func die():
 func primary_action():
 	Debug.log("Auch")
 
-func secondary_action():
+func secundary_action():
 	pass
 
-func fire(pos):
-	if not bullet_scene:
+func fire(pos, bullet):
+	if not bullets[bullet]:
 		Debug.log("falta la bala")
 		return
-	var bullet_inst = bullet_scene.instantiate()
+	var bullet_inst = bullets[bullet].instantiate()
 	bullet_inst.global_position = global_position
 	bullet_inst.global_rotation = global_position.direction_to(pos).angle()
 	bullet_spawner.add_child(bullet_inst, true)
 
 @rpc("authority", "call_local", "reliable")
-func fire_server(pos):
-	fire(pos)
+func fire_server(pos, bullet):
+	fire(pos, bullet)
 
 @rpc("authority", "call_local", "reliable")
 func swing():
