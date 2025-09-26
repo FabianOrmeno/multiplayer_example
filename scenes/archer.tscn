@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://jy540f44o2yf"]
+[gd_scene load_steps=55 format=3 uid="uid://jy540f44o2yf"]
 
 [ext_resource type="Script" uid="uid://bnk17avlc8ydn" path="res://scenes/archer.gd" id="1_ejvcm"]
 [ext_resource type="Texture2D" uid="uid://dnij2foc5ir7i" path="res://assets/character_17_frame32x32.png" id="2_c85qa"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://biw121ov2y2lk" path="res://scenes/input_synchronizer.tscn" id="4_d71b8"]
 [ext_resource type="PackedScene" uid="uid://c3h2fm5awt1cx" path="res://ui/healthbar.tscn" id="7_d71b8"]
 [ext_resource type="PackedScene" uid="uid://c5obd4lkhdur4" path="res://scenes/bow.tscn" id="7_vlvv2"]
+[ext_resource type="PackedScene" uid="uid://bwj7rhoroqijc" path="res://ui/healthbar_secundary.tscn" id="8_d71b8"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1s68y"]
 radius = 5.09902
@@ -387,3 +388,9 @@ offset_left = -141.0
 offset_top = -83.0
 offset_right = -141.0
 offset_bottom = -83.0
+
+[node name="HealthbarSecundary" parent="." instance=ExtResource("8_d71b8")]
+offset_left = -15.0
+offset_top = -26.0
+offset_right = 25.0
+offset_bottom = 14.0
