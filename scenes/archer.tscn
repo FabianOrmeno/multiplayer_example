@@ -324,6 +324,9 @@ motion_mode = 1
 script = ExtResource("1_ejvcm")
 bullet_scene = ExtResource("2_vlvv2")
 weapon_scene = ExtResource("7_vlvv2")
+bullets = Dictionary[String, PackedScene]({
+"arrow": ExtResource("2_vlvv2")
+})
 metadata/_custom_type_script = "uid://c3g0gk37yr2r2"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

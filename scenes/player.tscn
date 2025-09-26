@@ -252,11 +252,11 @@ animation = &"range"
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_3v2ag"]
 graph_offset = Vector2(-532.207, 62.1835)
+nodes/output/position = Vector2(333.333, 146.667)
 "nodes/Animation 2/node" = SubResource("AnimationNodeAnimation_y4r1p")
 "nodes/Animation 2/position" = Vector2(-146.667, 373.333)
 nodes/movement/node = ExtResource("7_smehm")
 nodes/movement/position = Vector2(-280, 146.667)
-nodes/output/position = Vector2(333.333, 146.667)
 nodes/range/node = SubResource("AnimationNodeOneShot_d2wvv")
 nodes/range/position = Vector2(95.2888, 196.874)
 node_connections = [&"output", 0, &"range", &"range", 0, &"movement", &"range", 1, &"Animation 2"]

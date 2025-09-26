@@ -1,8 +1,10 @@
-[gd_scene load_steps=52 format=3 uid="uid://bnu6a7h55bbc7"]
+[gd_scene load_steps=54 format=3 uid="uid://bnu6a7h55bbc7"]
 
 [ext_resource type="Script" uid="uid://c1sc3v50n8v5n" path="res://scenes/mage.gd" id="1_yb71v"]
-[ext_resource type="PackedScene" uid="uid://de2iebf1cc3t7" path="res://scenes/fireball.tscn" id="2_nc4w5"]
+[ext_resource type="PackedScene" uid="uid://b3ttx4o2c3k5e" path="res://scenes/iceball.tscn" id="2_nc4w5"]
 [ext_resource type="Texture2D" uid="uid://3pnc53x7fd5v" path="res://assets/character_5_frame32x32.png" id="2_t2cfv"]
+[ext_resource type="PackedScene" uid="uid://c3r6kmul65g8v" path="res://scenes/wand.tscn" id="3_nc4w5"]
+[ext_resource type="PackedScene" uid="uid://de2iebf1cc3t7" path="res://scenes/fireball.tscn" id="3_p0roq"]
 [ext_resource type="Script" uid="uid://6yht3jk70p8w" path="res://components/hurtbox.gd" id="3_yb71v"]
 [ext_resource type="PackedScene" uid="uid://biw121ov2y2lk" path="res://scenes/input_synchronizer.tscn" id="4_r5lxc"]
 
@@ -321,7 +323,13 @@ properties/0/replication_mode = 1
 y_sort_enabled = true
 motion_mode = 1
 script = ExtResource("1_yb71v")
-bullet_scene = ExtResource("2_nc4w5")
+second_bullet_scene = ExtResource("2_nc4w5")
+bullet_scene = ExtResource("3_p0roq")
+weapon_scene = ExtResource("3_nc4w5")
+bullets = Dictionary[String, PackedScene]({
+"fire": ExtResource("3_p0roq"),
+"ice": ExtResource("2_nc4w5")
+})
 metadata/_custom_type_script = "uid://c3g0gk37yr2r2"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
