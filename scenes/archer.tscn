@@ -1,10 +1,11 @@
-[gd_scene load_steps=53 format=3 uid="uid://jy540f44o2yf"]
+[gd_scene load_steps=54 format=3 uid="uid://jy540f44o2yf"]
 
 [ext_resource type="Script" uid="uid://bnk17avlc8ydn" path="res://scenes/archer.gd" id="1_ejvcm"]
 [ext_resource type="Texture2D" uid="uid://dnij2foc5ir7i" path="res://assets/character_17_frame32x32.png" id="2_c85qa"]
 [ext_resource type="PackedScene" uid="uid://euigjgxynrla" path="res://scenes/arrow.tscn" id="2_vlvv2"]
 [ext_resource type="Script" uid="uid://6yht3jk70p8w" path="res://components/hurtbox.gd" id="3_vlvv2"]
 [ext_resource type="PackedScene" uid="uid://biw121ov2y2lk" path="res://scenes/input_synchronizer.tscn" id="4_d71b8"]
+[ext_resource type="PackedScene" uid="uid://c3h2fm5awt1cx" path="res://ui/healthbar.tscn" id="7_d71b8"]
 [ext_resource type="PackedScene" uid="uid://c5obd4lkhdur4" path="res://scenes/bow.tscn" id="7_vlvv2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1s68y"]
@@ -380,3 +381,9 @@ replication_config = SubResource("SceneReplicationConfig_74jyu")
 
 [node name="BulletSpawner" type="MultiplayerSpawner" parent="."]
 spawn_path = NodePath(".")
+
+[node name="healthbar" parent="." instance=ExtResource("7_d71b8")]
+offset_left = -141.0
+offset_top = -83.0
+offset_right = -141.0
+offset_bottom = -83.0

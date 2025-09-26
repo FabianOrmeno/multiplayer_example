@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://bsvt7s20ar2nn"]
+[gd_scene load_steps=54 format=3 uid="uid://bsvt7s20ar2nn"]
 
 [ext_resource type="Script" uid="uid://nsypm3o4u547" path="res://scenes/warrior.gd" id="1_jq62g"]
 [ext_resource type="Texture2D" uid="uid://bca7fihyg8o1s" path="res://assets/character_9_frame32x32.png" id="2_kkak1"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://biw121ov2y2lk" path="res://scenes/input_synchronizer.tscn" id="4_iq265"]
 [ext_resource type="PackedScene" uid="uid://de6vap0mvx1dp" path="res://scenes/sword.tscn" id="5_utaup"]
 [ext_resource type="PackedScene" uid="uid://bnvk3myekg8id" path="res://scenes/shield.tscn" id="6_utaup"]
+[ext_resource type="PackedScene" uid="uid://c3h2fm5awt1cx" path="res://ui/healthbar.tscn" id="7_bwxyh"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_utaup"]
 radius = 5.09902
@@ -378,3 +379,9 @@ replication_config = SubResource("SceneReplicationConfig_3stqy")
 spawn_path = NodePath(".")
 
 [node name="shield" parent="." instance=ExtResource("6_utaup")]
+
+[node name="healthbar" parent="." instance=ExtResource("7_bwxyh")]
+offset_left = -142.0
+offset_top = -85.0
+offset_right = -142.0
+offset_bottom = -85.0

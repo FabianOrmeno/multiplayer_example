@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://c3h2fm5awt1cx"]
+[gd_scene load_steps=6 format=3 uid="uid://c3h2fm5awt1cx"]
 
+[ext_resource type="Script" uid="uid://cwsiks77sb5si" path="res://ui/healthbar.gd" id="1_78psk"]
 [ext_resource type="Texture2D" uid="uid://numudkjf2rwh" path="res://assets/GUISprite.png" id="1_l4sgg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_78psk"]
@@ -21,6 +22,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_78psk")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="."]
 layout_mode = 0
