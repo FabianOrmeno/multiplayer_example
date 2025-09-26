@@ -73,6 +73,8 @@ func _physics_process(delta: float) -> void:
 			self.primary_action()
 		if weapon_scene:
 			weapon.rotation = global_position.direction_to(get_global_mouse_position()).angle()
+		if Input.is_action_just_pressed("second action"):
+			self.secondary_action()
 		
 		
 	update_sprite_direction(move_input)
@@ -84,6 +86,7 @@ func _physics_process(delta: float) -> void:
 			#dot_spawn_requested.emit(get_global_mouse_position())
 		
 
+
 func setup(player_data: Statics.PlayerData):
 	label.text = player_data.name
 	name = str(player_data.id)
@@ -94,8 +97,6 @@ func setup(player_data: Statics.PlayerData):
 	if weapon_scene:
 		weapon.setup(player_data)
 	
-
-
 @rpc("any_peer", "call_local", "reliable")
 func test():
 	Debug.log("test: %s" % [label.text] )
@@ -130,7 +131,7 @@ func die():
 func primary_action():
 	Debug.log("Auch")
 
-func secundary_action():
+func secondary_action():
 	pass
 
 func fire(pos):

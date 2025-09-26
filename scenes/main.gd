@@ -14,11 +14,11 @@ func _ready() -> void:
 	for i in Game.players.size():
 		var player_data = Game.players[i]
 		var player_inst
-		if count == 0:
+		if Statics.get_role_name(player_data.role) == "Guerrero":
 			player_inst = warrior_scene.instantiate()
-		elif count == 1:
+		elif Statics.get_role_name(player_data.role) == "Maga":
 			player_inst = mage_scene.instantiate()
-		else:
+		elif Statics.get_role_name(player_data.role) == "Arquero":
 			player_inst = archer_scene.instantiate()
 		players.add_child(player_inst)
 		player_inst.global_position = markers.get_child(i).global_position
