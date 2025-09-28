@@ -11,6 +11,8 @@ signal dot_spawn_requested
 @export var max_health: int = 100
 @export var bullets: Dictionary[String, PackedScene]
 
+@onready var healthbar_secundary: Healthbar = $HealthbarSecundary
+@onready var healthbar: Healthbar = $healthbar
 @onready var label: Label = $Label
 @onready var multiplayer_synchronizer: MultiplayerSynchronizer = $MultiplayerSynchronizer
 @onready var input_synchronizer: InputSynchronizer = $InputSynchronizer
@@ -52,6 +54,8 @@ func update_sprite()-> void:
 
 func _ready() -> void:
 	health = max_health
+	healthbar.set_new_value(health)
+	healthbar_secundary.set_new_value(health)
 	
 	if weapon_scene:
 		weapon = weapon_scene.instantiate()
@@ -98,6 +102,10 @@ func setup(player_data: Statics.PlayerData):
 	camera_2d.enabled = is_multiplayer_authority()
 	if weapon_scene:
 		weapon.setup(player_data)
+	healthbar_secundary.visible = false
+	if not is_multiplayer_authority():
+		healthbar.visible = false
+		healthbar_secundary.visible = true
 	
 @rpc("any_peer", "call_local", "reliable")
 func test():
@@ -119,6 +127,8 @@ func take_damage_local(damage: int):
 	if health == 0:
 		health = max_health
 	health = max(0, health - damage)
+	healthbar.set_new_value(health)
+	healthbar_secundary.set_new_value(health)
 	Debug.log("Player HP: %d" % health)
 	if health == 0:
 		die.rpc()
