@@ -1,10 +1,11 @@
-[gd_scene load_steps=55 format=3 uid="uid://jy540f44o2yf"]
+[gd_scene load_steps=56 format=3 uid="uid://jy540f44o2yf"]
 
 [ext_resource type="Script" uid="uid://bnk17avlc8ydn" path="res://scenes/archer.gd" id="1_ejvcm"]
 [ext_resource type="Texture2D" uid="uid://dnij2foc5ir7i" path="res://assets/character_17_frame32x32.png" id="2_c85qa"]
 [ext_resource type="PackedScene" uid="uid://euigjgxynrla" path="res://scenes/arrow.tscn" id="2_vlvv2"]
 [ext_resource type="Script" uid="uid://6yht3jk70p8w" path="res://components/hurtbox.gd" id="3_vlvv2"]
 [ext_resource type="PackedScene" uid="uid://biw121ov2y2lk" path="res://scenes/input_synchronizer.tscn" id="4_d71b8"]
+[ext_resource type="PackedScene" uid="uid://byfftl5tridxc" path="res://scenes/bombarrow.tscn" id="4_mak8i"]
 [ext_resource type="PackedScene" uid="uid://c3h2fm5awt1cx" path="res://ui/healthbar.tscn" id="7_d71b8"]
 [ext_resource type="PackedScene" uid="uid://c5obd4lkhdur4" path="res://scenes/bow.tscn" id="7_vlvv2"]
 [ext_resource type="PackedScene" uid="uid://bwj7rhoroqijc" path="res://ui/healthbar_secundary.tscn" id="8_d71b8"]
@@ -327,7 +328,8 @@ script = ExtResource("1_ejvcm")
 bullet_scene = ExtResource("2_vlvv2")
 weapon_scene = ExtResource("7_vlvv2")
 bullets = Dictionary[String, PackedScene]({
-"arrow": ExtResource("2_vlvv2")
+"arrow": ExtResource("2_vlvv2"),
+"bomb": ExtResource("4_mak8i")
 })
 metadata/_custom_type_script = "uid://c3g0gk37yr2r2"
 
