@@ -26,6 +26,10 @@ func take_damage(damage) -> void:
 	if health <= 0:
 		die.rpc()
 
+func stun():
+	set_physics_process(false)
+	await get_tree().create_timer(2).timeout
+	set_physics_process(true)
 
 @rpc("authority", "call_local", "reliable")
 func die() -> void:
