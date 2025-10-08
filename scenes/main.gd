@@ -5,11 +5,13 @@ extends Node2D
 @export var mage_scene: PackedScene
 @export var warrior_scene: PackedScene
 @export var archer_scene: PackedScene
+@export var cube_scene: PackedScene
+@onready var cube_spawner: MultiplayerSpawner = $CubeSpawner
 @onready var players: Node2D = $Players
 @onready var markers: Node2D = $Markers
 
-
 func _ready() -> void:
+	$Enemy2.connect("enemy_died", spawn_ice)
 	var count = 0;
 	for i in Game.players.size():
 		var player_data = Game.players[i]
@@ -38,3 +40,18 @@ func spawn_dot(pos):
 	var dot_inst = dot_scene.instantiate()
 	add_child(dot_inst, true)
 	dot_inst.global_position = pos
+	
+	
+
+func spawn_ice(pos):
+	spawn.rpc(pos)
+	
+@rpc("authority", "call_local", "reliable")
+func spawn(pos):
+	Debug.log(cube_scene)
+	if not cube_scene:
+		Debug.log("falta cubito")
+		return
+	var cube_inst = cube_scene.instantiate()
+	cube_inst.global_position = pos
+	cube_spawner.add_child(cube_inst, true)

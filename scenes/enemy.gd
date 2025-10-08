@@ -1,17 +1,18 @@
 class_name Enemy
 extends Node2D
 
-
 @export var max_health: int = 100
 @export var speed: float = 50.0
 @export var detection_radius: float = 120.0
 @export var attack_range: float = 22.0
 @export var attack_cooldown: float = 0.8
 
-
+@onready var hurtbox = $Hurtbox
+var ice: bool = true
 var health: int
 var _cooldown: float = 0.0
 
+signal enemy_died(position)
 
 func _ready() -> void:
 	health = max_health
@@ -24,6 +25,13 @@ func take_damage(damage) -> void:
 	health -= damage
 	Debug.log("Enemy HP: %d" % health)
 	if health <= 0:
+		if ice:
+			var areas = hurtbox.get_overlapping_areas()
+			for area in areas:
+				var ball = area as Iceball
+				if ball:
+					Debug.log("Me mato una bola de hielo :(")
+					emit_signal("enemy_died", global_position)
 		die.rpc()
 
 func stun():
@@ -35,4 +43,3 @@ func stun():
 func die() -> void:
 	if is_inside_tree():
 		queue_free()
-		

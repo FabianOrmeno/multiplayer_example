@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://cyjxojx3jo8wi"]
+[gd_scene load_steps=24 format=4 uid="uid://cyjxojx3jo8wi"]
 
 [ext_resource type="Script" uid="uid://djd6qfqjfysf1" path="res://scenes/main.gd" id="1_o5qli"]
 [ext_resource type="PackedScene" uid="uid://df84bjfdlp4lx" path="res://scenes/player.tscn" id="2_0wfyh"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://d4dg1eiokjc81" path="res://scenes/enemy.tscn" id="5_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://jy540f44o2yf" path="res://scenes/archer.tscn" id="6_choun"]
 [ext_resource type="Texture2D" uid="uid://dqkbp8vsyjkkf" path="res://assets/walls_floor.png" id="7_tipki"]
+[ext_resource type="PackedScene" uid="uid://dkfvcatmth7sw" path="res://scenes/ice_cube.tscn" id="7_trceg"]
 [ext_resource type="Texture2D" uid="uid://bquxmnn2uqsmw" path="res://assets/Water_coasts_animation.png" id="8_85g3d"]
 [ext_resource type="PackedScene" uid="uid://bf4n820m60exh" path="res://scenes/frog.tscn" id="10_choun"]
 [ext_resource type="PackedScene" uid="uid://b5k4ck7werhqb" path="res://scenes/torch.tscn" id="11_ya4ey"]
@@ -3283,6 +3284,7 @@ dot_scene = ExtResource("3_sugp2")
 mage_scene = ExtResource("4_tipki")
 warrior_scene = ExtResource("5_85g3d")
 archer_scene = ExtResource("6_choun")
+cube_scene = ExtResource("7_trceg")
 
 [node name="TileMapLayer4" type="TileMapLayer" parent="."]
 z_index = -1
@@ -3342,3 +3344,6 @@ position = Vector2(303, 173)
 visibility_layer = 2
 z_index = -1
 position = Vector2(240, 0)
+
+[node name="CubeSpawner" type="MultiplayerSpawner" parent="."]
+spawn_path = NodePath(".")
