@@ -1,11 +1,10 @@
-[gd_scene load_steps=22 format=4 uid="uid://cyjxojx3jo8wi"]
+[gd_scene load_steps=21 format=4 uid="uid://cyjxojx3jo8wi"]
 
 [ext_resource type="Script" uid="uid://djd6qfqjfysf1" path="res://scenes/main.gd" id="1_o5qli"]
 [ext_resource type="PackedScene" uid="uid://df84bjfdlp4lx" path="res://scenes/player.tscn" id="2_0wfyh"]
 [ext_resource type="PackedScene" uid="uid://bquqisov20t1c" path="res://scenes/dot.tscn" id="3_sugp2"]
 [ext_resource type="PackedScene" uid="uid://bnu6a7h55bbc7" path="res://scenes/mage.tscn" id="4_tipki"]
 [ext_resource type="PackedScene" uid="uid://bsvt7s20ar2nn" path="res://scenes/warrior.tscn" id="5_85g3d"]
-[ext_resource type="PackedScene" uid="uid://d4dg1eiokjc81" path="res://scenes/enemy.tscn" id="5_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://jy540f44o2yf" path="res://scenes/archer.tscn" id="6_choun"]
 [ext_resource type="Texture2D" uid="uid://dqkbp8vsyjkkf" path="res://assets/walls_floor.png" id="7_tipki"]
 [ext_resource type="Texture2D" uid="uid://bquxmnn2uqsmw" path="res://assets/Water_coasts_animation.png" id="8_85g3d"]
@@ -3319,9 +3318,6 @@ position = Vector2(38, 139)
 [node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
 _spawnable_scenes = PackedStringArray("uid://bquqisov20t1c")
 spawn_path = NodePath("..")
-
-[node name="Enemy" parent="." instance=ExtResource("5_tbgi4")]
-position = Vector2(435, -66)
 
 [node name="Enemy2" parent="." instance=ExtResource("10_choun")]
 position = Vector2(307, 116)

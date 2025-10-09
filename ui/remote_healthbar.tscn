@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://cv4400ra23lar"]
+
+[ext_resource type="Script" uid="uid://cwsiks77sb5si" path="res://ui/healthbar.gd" id="1_kgfgm"]
+[ext_resource type="Texture2D" uid="uid://numudkjf2rwh" path="res://assets/GUISprite.png" id="2_5lfyt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dt658"]
+atlas = ExtResource("2_5lfyt")
+region = Rect2(96, 112, 63, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1hgan"]
+atlas = ExtResource("2_5lfyt")
+region = Rect2(100, 104, 56, 3)
+margin = Rect2(4, 8, 8, 10)
+
+[node name="RemoteHealthbar" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_kgfgm")
+metadata/_custom_type_script = "uid://cwsiks77sb5si"
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture_under = SubResource("AtlasTexture_dt658")
+texture_progress = SubResource("AtlasTexture_1hgan")

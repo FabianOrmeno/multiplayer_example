@@ -12,8 +12,8 @@ margin = Rect2(-15, 0, -15, 0)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rwa8u"]
 atlas = ExtResource("1_l4sgg")
-region = Rect2(16, 96, 64, 16)
-margin = Rect2(-15, 0, -15, 0)
+region = Rect2(31, 104, 46, 3)
+margin = Rect2(0, 8, 0, 10)
 
 [node name="healthbar" type="Control"]
 layout_mode = 3
@@ -30,7 +30,6 @@ anchor_left = 0.05625
 anchor_top = 0.0111111
 anchor_right = 0.209375
 anchor_bottom = 0.1
-value = 100.0
 texture_under = SubResource("AtlasTexture_78psk")
 texture_over = SubResource("CompressedTexture2D_eerok")
 texture_progress = SubResource("AtlasTexture_rwa8u")

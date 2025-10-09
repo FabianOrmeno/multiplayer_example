@@ -11,8 +11,9 @@ signal dot_spawn_requested
 @export var max_health: int = 100
 @export var bullets: Dictionary[String, PackedScene]
 
-@onready var healthbar_secundary: Healthbar = $HealthbarSecundary
+
 @onready var healthbar: Healthbar = $healthbar
+@onready var remote_healthbar: Healthbar = $RemoteHealthbar
 @onready var label: Label = $Label
 @onready var multiplayer_synchronizer: MultiplayerSynchronizer = $MultiplayerSynchronizer
 @onready var input_synchronizer: InputSynchronizer = $InputSynchronizer
@@ -23,6 +24,8 @@ signal dot_spawn_requested
 @onready var camera_2d: Camera2D = $Camera2D
 @onready var pickable_area_2d: Area2D = $PickableArea2D
 @onready var pickable_marker_2d: Marker2D = $PickableMarker2D
+@onready var health_component: HealthComponent = $HealthComponent
+@onready var texture_progress_bar: TextureProgressBar = $TextureProgressBar
 
 
 var health: int = 0
@@ -53,9 +56,10 @@ func update_sprite()-> void:
 		animation_state = "idle_"
 
 func _ready() -> void:
-	health = max_health
-	healthbar.set_new_value(health)
-	healthbar_secundary.set_new_value(health)
+	health = health_component.max_health
+	healthbar.setup(health_component)
+	remote_healthbar.setup(health_component)
+	
 	
 	if weapon_scene:
 		weapon = weapon_scene.instantiate()
@@ -102,10 +106,10 @@ func setup(player_data: Statics.PlayerData):
 	camera_2d.enabled = is_multiplayer_authority()
 	if weapon_scene:
 		weapon.setup(player_data)
-	healthbar_secundary.visible = false
-	if not is_multiplayer_authority():
-		healthbar.visible = false
-		healthbar_secundary.visible = true
+	healthbar.visible = is_multiplayer_authority()
+	remote_healthbar.visible = not is_multiplayer_authority()
+	
+		
 	
 @rpc("any_peer", "call_local", "reliable")
 func test():
@@ -127,8 +131,6 @@ func take_damage_local(damage: int):
 	if health == 0:
 		health = max_health
 	health = max(0, health - damage)
-	healthbar.set_new_value(health)
-	healthbar_secundary.set_new_value(health)
 	Debug.log("Player HP: %d" % health)
 	if health == 0:
 		die.rpc()
