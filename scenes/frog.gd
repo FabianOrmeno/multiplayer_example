@@ -55,3 +55,9 @@ func _do_attack() -> void:
 
 	if is_instance_valid(hitbox_shape):
 		hitbox_shape.disabled = true
+		
+func stun():
+	playback.travel("idle")
+	super.stun()
+	
+	

@@ -30,4 +30,4 @@ replication_config = SubResource("SceneReplicationConfig_hmv1p")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_q8ifc")
 region_enabled = true
-region_rect = Rect2(32.2807, 19.5647, 15.764, 7.43865)
+region_rect = Rect2(32, 20, 16, 7)
