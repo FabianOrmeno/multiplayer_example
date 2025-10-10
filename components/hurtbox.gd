@@ -1,7 +1,7 @@
 class_name Hurtbox
 extends Area2D
 
-
+@export var health_component: HealthComponent
 @export var invulnerability_time: float = 0.2
 var _can_take: bool = true
 
@@ -15,6 +15,8 @@ func _on_area_entered(area: Area2D):
 	var hitbox = area as Hitbox
 
 	if hitbox and not hitbox.should_ignore(self):
+		if health_component:
+			health_component.health -= hitbox.damage
 		if owner and owner.has_method("take_damage"):
 			owner.take_damage(hitbox.damage)
 			hitbox.damage_dealt.emit()

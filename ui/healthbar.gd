@@ -5,5 +5,7 @@ extends Control
 @onready var texture_progress_bar: TextureProgressBar = $TextureProgressBar
 
 
-func set_new_value(value):
-	texture_progress_bar.value = value
+func setup(health_component: HealthComponent):
+	texture_progress_bar.value = health_component.health
+	texture_progress_bar.max_value = health_component.max_health
+	health_component.health_changed.connect(func(value): texture_progress_bar.value = value)

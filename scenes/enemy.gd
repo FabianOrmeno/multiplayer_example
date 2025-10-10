@@ -6,6 +6,8 @@ extends Node2D
 @export var detection_radius: float = 120.0
 @export var attack_range: float = 22.0
 @export var attack_cooldown: float = 0.8
+@onready var remote_healthbar: Healthbar = $RemoteHealthbar
+@onready var health_component: HealthComponent = $HealthComponent
 
 @onready var hurtbox = $Hurtbox
 var ice: bool = true
@@ -15,7 +17,8 @@ var _cooldown: float = 0.0
 signal enemy_died(position)
 
 func _ready() -> void:
-	health = max_health
+	health = health_component.max_health
+	remote_healthbar.setup(health_component)
 
 
 func take_damage(damage) -> void:

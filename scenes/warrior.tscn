@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://bsvt7s20ar2nn"]
+[gd_scene load_steps=56 format=3 uid="uid://bsvt7s20ar2nn"]
 
 [ext_resource type="Script" uid="uid://nsypm3o4u547" path="res://scenes/warrior.gd" id="1_jq62g"]
 [ext_resource type="Texture2D" uid="uid://bca7fihyg8o1s" path="res://assets/character_9_frame32x32.png" id="2_kkak1"]
@@ -7,7 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://de6vap0mvx1dp" path="res://scenes/sword.tscn" id="5_utaup"]
 [ext_resource type="PackedScene" uid="uid://bnvk3myekg8id" path="res://scenes/shield.tscn" id="6_utaup"]
 [ext_resource type="PackedScene" uid="uid://c3h2fm5awt1cx" path="res://ui/healthbar.tscn" id="7_bwxyh"]
-[ext_resource type="PackedScene" uid="uid://bwj7rhoroqijc" path="res://ui/healthbar_secundary.tscn" id="8_hqs1p"]
+[ext_resource type="PackedScene" uid="uid://cv4400ra23lar" path="res://ui/remote_healthbar.tscn" id="8_3stqy"]
+[ext_resource type="PackedScene" uid="uid://sqqc1otkijsx" path="res://components/health_component.tscn" id="8_hqs1p"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_utaup"]
 radius = 5.09902
@@ -339,8 +340,9 @@ frame = 7
 rotation = 0.00733251
 shape = SubResource("CircleShape2D_utaup")
 
-[node name="Hurtbox" type="Area2D" parent="."]
+[node name="Hurtbox" type="Area2D" parent="." node_paths=PackedStringArray("health_component")]
 script = ExtResource("3_iq265")
+health_component = NodePath("../HealthComponent")
 metadata/_custom_type_script = "uid://6yht3jk70p8w"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
@@ -382,13 +384,20 @@ spawn_path = NodePath(".")
 [node name="shield" parent="." instance=ExtResource("6_utaup")]
 
 [node name="healthbar" parent="." instance=ExtResource("7_bwxyh")]
-offset_left = -142.0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = -140.0
 offset_top = -85.0
-offset_right = -142.0
+offset_right = -140.0
 offset_bottom = -85.0
+grow_horizontal = 1
+grow_vertical = 1
 
-[node name="HealthbarSecundary" parent="." instance=ExtResource("8_hqs1p")]
-offset_left = -17.0
-offset_top = -27.0
-offset_right = 23.0
-offset_bottom = 13.0
+[node name="RemoteHealthbar" parent="." instance=ExtResource("8_3stqy")]
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="HealthComponent" parent="." instance=ExtResource("8_hqs1p")]

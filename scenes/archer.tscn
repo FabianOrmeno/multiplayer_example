@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://jy540f44o2yf"]
+[gd_scene load_steps=57 format=3 uid="uid://jy540f44o2yf"]
 
 [ext_resource type="Script" uid="uid://bnk17avlc8ydn" path="res://scenes/archer.gd" id="1_ejvcm"]
 [ext_resource type="Texture2D" uid="uid://dnij2foc5ir7i" path="res://assets/character_17_frame32x32.png" id="2_c85qa"]
@@ -8,7 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://byfftl5tridxc" path="res://scenes/bombarrow.tscn" id="4_mak8i"]
 [ext_resource type="PackedScene" uid="uid://c3h2fm5awt1cx" path="res://ui/healthbar.tscn" id="7_d71b8"]
 [ext_resource type="PackedScene" uid="uid://c5obd4lkhdur4" path="res://scenes/bow.tscn" id="7_vlvv2"]
-[ext_resource type="PackedScene" uid="uid://bwj7rhoroqijc" path="res://ui/healthbar_secundary.tscn" id="8_d71b8"]
+[ext_resource type="PackedScene" uid="uid://sqqc1otkijsx" path="res://components/health_component.tscn" id="9_1s68y"]
+[ext_resource type="PackedScene" uid="uid://cv4400ra23lar" path="res://ui/remote_healthbar.tscn" id="10_88c65"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1s68y"]
 radius = 5.09902
@@ -386,13 +387,15 @@ replication_config = SubResource("SceneReplicationConfig_74jyu")
 spawn_path = NodePath(".")
 
 [node name="healthbar" parent="." instance=ExtResource("7_d71b8")]
-offset_left = -141.0
-offset_top = -83.0
-offset_right = -141.0
-offset_bottom = -83.0
+offset_left = -140.0
+offset_top = -85.0
+offset_right = -140.0
+offset_bottom = -85.0
 
-[node name="HealthbarSecundary" parent="." instance=ExtResource("8_d71b8")]
-offset_left = -15.0
-offset_top = -26.0
-offset_right = 25.0
-offset_bottom = 14.0
+[node name="HealthComponent" parent="." instance=ExtResource("9_1s68y")]
+
+[node name="RemoteHealthbar" parent="." instance=ExtResource("10_88c65")]
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 8.0
+offset_bottom = 8.0
