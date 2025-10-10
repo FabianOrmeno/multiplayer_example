@@ -65,8 +65,8 @@ transitions = ["Start", "fire", SubResource("AnimationNodeStateMachineTransition
 graph_offset = Vector2(-16, 0)
 
 [node name="Hitbox" type="Area2D"]
-collision_layer = 4
-collision_mask = 4
+collision_layer = 132
+collision_mask = 132
 script = ExtResource("1_1gl40")
 metadata/_custom_type_script = "uid://bms2suq061atj"
 
