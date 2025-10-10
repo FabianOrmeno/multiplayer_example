@@ -1,34 +1,20 @@
-[gd_scene load_steps=6 format=3 uid="uid://wwg1801b6lrn"]
+[gd_scene load_steps=3 format=3 uid="uid://wwg1801b6lrn"]
 
-[ext_resource type="Script" uid="uid://bv3qii7c8ei4n" path="res://scenes/fake_wall.gd" id="1_ye2y6"]
-[ext_resource type="Script" uid="uid://6yht3jk70p8w" path="res://components/hurtbox.gd" id="2_1ilbg"]
-[ext_resource type="Texture2D" uid="uid://b5tkjwgoktle4" path="res://assets/Hana Caraka - Topdown Tileset [sample]/Tileset/dirt wall.png" id="2_nq75o"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_nq75o"]
-size = Vector2(32, 32)
+[ext_resource type="Texture2D" uid="uid://dqkbp8vsyjkkf" path="res://assets/walls_floor.png" id="2_1ilbg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0wfni"]
-size = Vector2(32, 9)
+size = Vector2(32, 26)
 
 [node name="Node2D" type="Node2D"]
-script = ExtResource("1_ye2y6")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_nq75o")
+position = Vector2(0.12500012, 0)
+scale = Vector2(0.9921875, 1)
+texture = ExtResource("2_1ilbg")
 region_enabled = true
-region_rect = Rect2(8, 8, 32, 32)
-
-[node name="Hurtbox" type="Area2D" parent="."]
-collision_layer = 4
-collision_mask = 4
-script = ExtResource("2_1ilbg")
-metadata/_custom_type_script = "uid://6yht3jk70p8w"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
-shape = SubResource("RectangleShape2D_nq75o")
+region_rect = Rect2(127.981384, 416.19733, 31.842117, 31.657501)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(0, 4)
 shape = SubResource("RectangleShape2D_0wfni")
