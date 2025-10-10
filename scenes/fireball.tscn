@@ -8,10 +8,10 @@
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_43lgj"]
 properties/0/path = NodePath(".:position")
 properties/0/spawn = true
-properties/0/replication_mode = 0
+properties/0/replication_mode = 2
 properties/1/path = NodePath(".:rotation")
 properties/1/spawn = true
-properties/1/replication_mode = 0
+properties/1/replication_mode = 2
 
 [sub_resource type="Animation" id="Animation_86oub"]
 length = 0.001
@@ -65,8 +65,8 @@ transitions = ["Start", "fire", SubResource("AnimationNodeStateMachineTransition
 graph_offset = Vector2(-16, 0)
 
 [node name="Hitbox" type="Area2D"]
-collision_layer = 4
-collision_mask = 4
+collision_layer = 132
+collision_mask = 132
 script = ExtResource("1_1gl40")
 metadata/_custom_type_script = "uid://bms2suq061atj"
 

@@ -1,5 +1,6 @@
-extends Hitbox
 class_name Iceball
+extends Hitbox
+
 
 @export var max_speed = 150
 

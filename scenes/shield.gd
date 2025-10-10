@@ -1,14 +1,19 @@
+class_name Shield
 extends Node2D
 
 @onready var multiplayer_synchronizer: MultiplayerSynchronizer = $MultiplayerSynchronizer
 @onready var colition_shield: CollisionShape2D = $Hitbox/CollisionShape2D
+@onready var hitbox: Hitbox = $Hitbox
 
 var data: Statics.PlayerData = null
+var parrying = false
 
 
 func _ready() -> void:
 	if data:
 		setup(data)
+	if is_multiplayer_authority():
+		hitbox.area_entered.connect(reflect)
 
 
 func setup(player_data: Statics.PlayerData):
@@ -20,6 +25,7 @@ func setup(player_data: Statics.PlayerData):
 		data = player_data
 
 
+
 func block():
 	#Activar collision de espada
 	colition_shield.disabled = false
@@ -28,4 +34,27 @@ func block():
 
 func _disable_sword_collision():
 	colition_shield.disabled = true
-	
+
+func reflect(area: Area2D) -> void:
+	if not parrying:
+		return
+	Debug.log("area entered")
+	var fireball = area as FireBall
+	var iceball = area as Iceball
+	if fireball:
+		var angle = get_angle_to(fireball.global_position)
+		fireball.rotate(PI-angle*2)
+	elif iceball:
+		var angle = get_angle_to(iceball.global_position)
+		iceball.rotate(PI - angle*2)
+
+func parry() -> void:
+	Debug.log("Parrying")
+	var tween: Tween = create_tween()
+	var inicial_position = position
+	parrying = true
+	tween.tween_property(self, "position", inicial_position - Vector2(10,0).rotated(global_rotation), 0.1).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
+	tween.tween_property(self, "position", inicial_position + Vector2(10, 0).rotated(global_rotation), 0.5).set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT)
+	tween.tween_property(self, "position", inicial_position, 0.2)
+	await tween.finished
+	parrying = false

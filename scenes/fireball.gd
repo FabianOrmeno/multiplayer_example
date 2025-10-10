@@ -1,3 +1,4 @@
+class_name FireBall
 extends Hitbox
 
 @export var max_speed = 200
