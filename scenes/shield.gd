@@ -1,3 +1,4 @@
+class_name Shield
 extends Node2D
 
 @onready var multiplayer_synchronizer: MultiplayerSynchronizer = $MultiplayerSynchronizer
@@ -5,6 +6,7 @@ extends Node2D
 @onready var hitbox: Hitbox = $Hitbox
 
 var data: Statics.PlayerData = null
+var parrying = false
 
 
 func _ready() -> void:
@@ -34,6 +36,8 @@ func _disable_sword_collision():
 	colition_shield.disabled = true
 
 func reflect(area: Area2D) -> void:
+	if not parrying:
+		return
 	Debug.log("area entered")
 	var fireball = area as FireBall
 	var iceball = area as Iceball
@@ -42,4 +46,15 @@ func reflect(area: Area2D) -> void:
 		fireball.rotate(PI-angle*2)
 	elif iceball:
 		var angle = get_angle_to(iceball.global_position)
-		iceball.rotate(PI - angle*2)	
+		iceball.rotate(PI - angle*2)
+
+func parry() -> void:
+	Debug.log("Parrying")
+	var tween: Tween = create_tween()
+	var inicial_position = position
+	parrying = true
+	tween.tween_property(self, "position", inicial_position - Vector2(10,0).rotated(global_rotation), 0.1).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
+	tween.tween_property(self, "position", inicial_position + Vector2(10, 0).rotated(global_rotation), 0.5).set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT)
+	tween.tween_property(self, "position", inicial_position, 0.2)
+	await tween.finished
+	parrying = false
