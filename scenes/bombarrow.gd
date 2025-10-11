@@ -1,4 +1,5 @@
 extends Hitbox
+class_name  Bomb_arrow
 
 @onready var area_2d: Area2D = $Area2D
 @onready var arrow = $Sprite2D

@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dkfvcatmth7sw"]
+[gd_scene load_steps=8 format=3 uid="uid://dkfvcatmth7sw"]
 
 [ext_resource type="Script" uid="uid://cvnj7vpw7j5ac" path="res://scenes/ice_cube.gd" id="1_240pj"]
-[ext_resource type="Texture2D" uid="uid://tw8t38ns0seh" path="res://icon.svg" id="1_mqgh4"]
+[ext_resource type="Texture2D" uid="uid://dn1eubupc18qk" path="res://assets/Ice Free Sample_nnekart.png" id="2_ovlj8"]
+[ext_resource type="Script" uid="uid://6yht3jk70p8w" path="res://components/hurtbox.gd" id="3_ovlj8"]
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_240pj"]
 properties/0/path = NodePath(".:position")
@@ -11,12 +12,50 @@ properties/1/path = NodePath(".:rotation")
 properties/1/spawn = true
 properties/1/replication_mode = 0
 
-[node name="Node2D" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_240pj"]
+size = Vector2(24, 15)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eh3lo"]
+size = Vector2(24, 24)
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_ovlj8"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath(".:rotation")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+
+[node name="Node2D" type="RigidBody2D"]
+y_sort_enabled = true
+gravity_scale = 0.0
+lock_rotation = true
 script = ExtResource("1_240pj")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.23046875, 0.1875)
-texture = ExtResource("1_mqgh4")
+y_sort_enabled = true
+position = Vector2(0, 2.9802322e-08)
+scale = Vector2(0.7678572, 0.75446427)
+texture = ExtResource("2_ovlj8")
+region_enabled = true
+region_rect = Rect2(48, 0, 32, 32)
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
 replication_config = SubResource("SceneReplicationConfig_240pj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 4.5)
+shape = SubResource("RectangleShape2D_240pj")
+
+[node name="Hurtbox" type="Area2D" parent="."]
+visible = false
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("3_ovlj8")
+metadata/_custom_type_script = "uid://6yht3jk70p8w"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+shape = SubResource("RectangleShape2D_eh3lo")
+
+[node name="MultiplayerSynchronizer2" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_ovlj8")
