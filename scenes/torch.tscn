@@ -1,7 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://b5k4ck7werhqb"]
+[gd_scene load_steps=13 format=3 uid="uid://b5k4ck7werhqb"]
 
-[ext_resource type="Texture2D" uid="uid://c7kq57tavjsgn" path="res://assets/animated_torch.png" id="1_d4v33"]
 [ext_resource type="Script" uid="uid://20g3akg0qlgo" path="res://scenes/torch.gd" id="1_my26j"]
+[ext_resource type="Texture2D" uid="uid://bg8gm2wnlpiof" path="res://assets/antorchas.png" id="2_my26j"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_o2tjn"]
 height = 42.0
@@ -24,7 +24,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_my26j"]
 resource_name = "motion"
-length = 0.7
+length = 0.8
 loop_mode = 1
 step = 0.1
 tracks/0/type = "value"
@@ -34,35 +34,62 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [1, 2, 3, 4, 5, 6, 7]
+"values": [1, 2, 3, 4, 5, 6, 7, 8]
+}
+
+[sub_resource type="Animation" id="Animation_r3k50"]
+resource_name = "off"
+length = 0.1
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_r3k50"]
 _data = {
 &"RESET": SubResource("Animation_o2tjn"),
-&"motion": SubResource("Animation_my26j")
+&"motion": SubResource("Animation_my26j"),
+&"off": SubResource("Animation_r3k50")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_d4v33"]
 animation = &"motion"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_my26j"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ndh0a"]
+animation = &"off"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ktql7"]
 advance_mode = 2
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_my26j"]
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_o2tjn"]
+states/Start/position = Vector2(214, 100)
 states/motion/node = SubResource("AnimationNodeAnimation_d4v33")
-states/motion/position = Vector2(400, 100)
-transitions = ["Start", "motion", SubResource("AnimationNodeStateMachineTransition_my26j")]
+states/motion/position = Vector2(643, 100)
+states/off/node = SubResource("AnimationNodeAnimation_ndh0a")
+states/off/position = Vector2(420, 100)
+transitions = ["Start", "off", SubResource("AnimationNodeStateMachineTransition_ktql7"), "off", "motion", SubResource("AnimationNodeStateMachineTransition_my26j")]
 
 [node name="torch" type="Node2D"]
 script = ExtResource("1_my26j")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_d4v33")
-hframes = 9
+texture = ExtResource("2_my26j")
+hframes = 10
 frame = 1
 region_rect = Rect2(0, 1, 32, 65.5)
 
@@ -86,10 +113,3 @@ libraries = {
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeStateMachine_o2tjn")
 anim_player = NodePath("../AnimationPlayer")
-
-[node name="Label" type="Label" parent="."]
-visible = false
-offset_right = 40.0
-offset_bottom = 12.0
-text = "ON
-"

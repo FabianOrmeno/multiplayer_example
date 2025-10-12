@@ -13,7 +13,9 @@ extends Node2D
 var ice: bool = true
 var health: int
 var _cooldown: float = 0.0
+var defeated = false
 
+signal state(defeated)
 signal enemy_died(position)
 
 func _ready() -> void:
@@ -45,4 +47,6 @@ func stun():
 @rpc("authority", "call_local", "reliable")
 func die() -> void:
 	if is_inside_tree():
+		emit_signal("state", defeated)
 		queue_free()
+		
