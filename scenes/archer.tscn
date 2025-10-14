@@ -346,8 +346,9 @@ frame = 7
 rotation = 0.00733251
 shape = SubResource("CircleShape2D_1s68y")
 
-[node name="Hurtbox" type="Area2D" parent="."]
+[node name="Hurtbox" type="Area2D" parent="." node_paths=PackedStringArray("health_component")]
 script = ExtResource("3_vlvv2")
+health_component = NodePath("../HealthComponent")
 metadata/_custom_type_script = "uid://6yht3jk70p8w"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
