@@ -9,9 +9,12 @@ extends Node2D
 @onready var cube_spawner: MultiplayerSpawner = $CubeSpawner
 @onready var players: Node2D = $Players
 @onready var markers: Node2D = $Markers
+@onready var defeat_screen = $DefeatScreen
+var died = 0
 
 func _ready() -> void:
 	$Enemy2.connect("enemy_died", spawn_ice)
+	defeat_screen.hide()
 	var count = 0;
 	for i in Game.players.size():
 		var player_data = Game.players[i]
@@ -22,10 +25,12 @@ func _ready() -> void:
 			player_inst = mage_scene.instantiate()
 		elif Statics.get_role_name(player_data.role) == "Arquero":
 			player_inst = archer_scene.instantiate()
+		player_inst.connect("died", player_died)
 		players.add_child(player_inst)
 		player_inst.global_position = markers.get_child(i).global_position
-		player_inst.setup(player_data)
+		player_inst.setup(player_data, i)
 		player_inst.dot_spawn_requested.connect(_on_dot_spawn)
+		player_data.scene = player_inst
 		count += 1
 	await get_tree().create_timer(5).timeout
 	Debug.log(get_tree().get_nodes_in_group("player").size())
@@ -55,3 +60,17 @@ func spawn(pos):
 	var cube_inst = cube_scene.instantiate()
 	cube_inst.global_position = pos
 	cube_spawner.add_child(cube_inst, true)
+
+func player_died(id):
+	Game.players[id].defeated = true
+	var all_defeated = true
+	for player in Game.players:
+		all_defeated = all_defeated and player.defeated
+	if all_defeated:
+		defeated.rpc()
+		
+@rpc("authority", "call_local", "reliable")
+func defeated():
+	Debug.log("Jajaj, perdieron")
+	defeat_screen.show()
+	
