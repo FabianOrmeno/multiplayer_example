@@ -3,8 +3,8 @@ class_name  Warrior
 @onready var shield: Shield = $shield
 @onready var cant_attack: bool = false
 
-func setup(player_data: Statics.PlayerData):
-	super.setup(player_data)
+func setup(player_data: Statics.PlayerData, num):
+	super.setup(player_data, num)
 	shield.setup(player_data)
 	shield.hide()
 	

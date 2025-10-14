@@ -3391,32 +3391,3 @@ derrotados"
 label_settings = SubResource("LabelSettings_trceg")
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="ColorRect" type="ColorRect" parent="DefeatScreen"]
-offset_right = 320.0
-offset_bottom = 180.0
-color = Color(0.28235295, 0, 0, 0.41960785)
-
-[node name="ColorRect2" type="ColorRect" parent="DefeatScreen"]
-offset_right = 13.0
-offset_bottom = 180.0
-color = Color(0.49803922, 0, 0, 1)
-
-[node name="ColorRect3" type="ColorRect" parent="DefeatScreen"]
-offset_left = 307.0
-offset_right = 320.0
-offset_bottom = 180.0
-color = Color(0.49803922, 0, 0, 1)
-
-[node name="ColorRect4" type="ColorRect" parent="DefeatScreen"]
-offset_left = 13.0
-offset_top = 168.0
-offset_right = 307.0
-offset_bottom = 180.0
-color = Color(0.49803922, 0, 0, 1)
-
-[node name="ColorRect5" type="ColorRect" parent="DefeatScreen"]
-offset_left = 13.0
-offset_right = 307.0
-offset_bottom = 12.0
-color = Color(0.49803922, 0, 0, 1)

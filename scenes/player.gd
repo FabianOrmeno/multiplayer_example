@@ -2,6 +2,7 @@ class_name Player
 extends CharacterBody2D
 
 signal dot_spawn_requested
+signal died
 
 @export var max_speed: int = 100
 @export var acceleration: int = 800
@@ -29,7 +30,7 @@ signal dot_spawn_requested
 
 
 var health: int = 0
-
+var id: int = 0
 
 var picked_node = null
 var pickable: Node2D
@@ -59,7 +60,6 @@ func _ready() -> void:
 	health = health_component.max_health
 	healthbar.setup(health_component)
 	remote_healthbar.setup(health_component)
-	
 	
 	if weapon_scene:
 		weapon = weapon_scene.instantiate()
@@ -97,7 +97,8 @@ func _physics_process(delta: float) -> void:
 		
 
 
-func setup(player_data: Statics.PlayerData):
+func setup(player_data: Statics.PlayerData, num):
+	id = num
 	label.text = player_data.name
 	name = str(player_data.id)
 	set_multiplayer_authority(player_data.id, false)
@@ -133,11 +134,12 @@ func take_damage_local(damage: int):
 	health = max(0, health - damage)
 	Debug.log("Player HP: %d" % health)
 	if health == 0:
+		Debug.log("Player died")
 		die.rpc()
 
 @rpc("authority", "call_local", "reliable")
 func die():
-	Debug.log("Player died")
+	emit_signal("died", id)
 	if is_inside_tree():
 		queue_free()
 
