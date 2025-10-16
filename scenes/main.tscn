@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=4 uid="uid://cyjxojx3jo8wi"]
+[gd_scene load_steps=32 format=4 uid="uid://cyjxojx3jo8wi"]
 
 [ext_resource type="Script" uid="uid://djd6qfqjfysf1" path="res://scenes/main.gd" id="1_o5qli"]
 [ext_resource type="PackedScene" uid="uid://df84bjfdlp4lx" path="res://scenes/player.tscn" id="2_0wfyh"]
@@ -15,6 +15,8 @@
 [ext_resource type="PackedScene" uid="uid://wwg1801b6lrn" path="res://scenes/fake_wall.tscn" id="12_eb6dy"]
 [ext_resource type="Script" uid="uid://ckky0llyhdw4r" path="res://components/meta.gd" id="14_a8y0u"]
 [ext_resource type="PackedScene" uid="uid://cfy25mfd4vcsf" path="res://lobby/victory_screen.tscn" id="14_jkv2x"]
+[ext_resource type="PackedScene" uid="uid://bbbawsu6wdhuc" path="res://scenes/wall_destroy.tscn" id="16_jbj1t"]
+[ext_resource type="PackedScene" uid="uid://61dsv0ldi4fe" path="res://scenes/firecatcher.tscn" id="17_muem4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ya4ey"]
 texture = ExtResource("8_85g3d")
@@ -3487,7 +3489,7 @@ spawn_path = NodePath("..")
 
 [node name="Enemy2" parent="." instance=ExtResource("10_choun")]
 z_index = 1
-position = Vector2(307, 116)
+position = Vector2(158, 39)
 scale = Vector2(0.75, 0.75)
 
 [node name="CubeSpawner" type="MultiplayerSpawner" parent="."]
@@ -3560,3 +3562,9 @@ metadata/_custom_type_script = "uid://ckky0llyhdw4r"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Meta"]
 position = Vector2(-0.5, 1)
 shape = SubResource("RectangleShape2D_jkv2x")
+
+[node name="wall_destroy" parent="." instance=ExtResource("16_jbj1t")]
+position = Vector2(211, 29)
+
+[node name="firecatcher" parent="." instance=ExtResource("17_muem4")]
+position = Vector2(260, 156)

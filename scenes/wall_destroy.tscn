@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://bbbawsu6wdhuc"]
+
+[ext_resource type="Script" uid="uid://dwxs2nty01pfl" path="res://scenes/wall_destroy.gd" id="1_a2asi"]
+[ext_resource type="Texture2D" uid="uid://dqkbp8vsyjkkf" path="res://assets/walls_floor.png" id="2_wjxqj"]
+[ext_resource type="Script" uid="uid://6yht3jk70p8w" path="res://components/hurtbox.gd" id="3_soo5p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qql2d"]
+size = Vector2(30, 93)
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_xlyex"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eugd3"]
+size = Vector2(30, 93)
+
+[node name="wall_destroy" type="Node2D"]
+script = ExtResource("1_a2asi")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 1.9073486e-06)
+scale = Vector2(1.0344827, 1.0564631)
+texture = ExtResource("2_wjxqj")
+region_enabled = true
+region_rect = Rect2(82, 243, 29, 88)
+
+[node name="Hurtbox" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("3_soo5p")
+metadata/_custom_type_script = "uid://6yht3jk70p8w"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+shape = SubResource("RectangleShape2D_qql2d")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_xlyex")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_eugd3")
