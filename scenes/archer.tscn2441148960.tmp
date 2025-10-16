@@ -392,7 +392,4 @@ spawn_path = NodePath(".")
 [node name="HealthComponent" parent="." instance=ExtResource("9_1s68y")]
 
 [node name="RemoteHealthbar" parent="." instance=ExtResource("10_88c65")]
-offset_left = -32.0
-offset_top = -31.0
-offset_right = 8.0
-offset_bottom = 9.0
+script = null

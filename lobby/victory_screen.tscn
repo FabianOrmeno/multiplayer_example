@@ -1,0 +1,51 @@
+[gd_scene load_steps=3 format=3 uid="uid://cfy25mfd4vcsf"]
+
+[sub_resource type="SystemFont" id="SystemFont_ur7pv"]
+subpixel_positioning = 0
+
+[sub_resource type="LabelSettings" id="LabelSettings_yc3sc"]
+font = SubResource("SystemFont_ur7pv")
+font_size = 30
+outline_size = 12
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Victory_screen" type="CanvasLayer"]
+
+[node name="Label" type="Label" parent="."]
+offset_left = -1.0
+offset_right = 320.0
+offset_bottom = 180.0
+text = "Han 
+Ganado"
+label_settings = SubResource("LabelSettings_yc3sc")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 320.0
+offset_bottom = 180.0
+color = Color(0.0238086, 0.16575375, 0.04688351, 0.41960785)
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+offset_right = 13.0
+offset_bottom = 180.0
+color = Color(0, 0.3137255, 0, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="."]
+offset_left = 307.0
+offset_right = 320.0
+offset_bottom = 180.0
+color = Color(0.0063523087, 0.31444633, 2.4065375e-07, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="."]
+offset_left = 13.0
+offset_top = 168.0
+offset_right = 307.0
+offset_bottom = 180.0
+color = Color(0, 0.3137255, 0, 1)
+
+[node name="ColorRect5" type="ColorRect" parent="."]
+offset_left = 13.0
+offset_right = 307.0
+offset_bottom = 12.0
+color = Color(0, 0.3137255, 0, 1)

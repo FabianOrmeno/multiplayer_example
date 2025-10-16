@@ -389,17 +389,11 @@ replication_config = SubResource("SceneReplicationConfig_yb71v")
 spawn_path = NodePath(".")
 
 [node name="healthbar" parent="." instance=ExtResource("8_66amf")]
-offset_left = -140.0
-offset_top = -85.0
-offset_right = -140.0
-offset_bottom = -85.0
-size_flags_horizontal = 0
-size_flags_vertical = 0
 
 [node name="HealthComponent" parent="." instance=ExtResource("9_aoi4v")]
 
 [node name="RemoteHealthbar" parent="." instance=ExtResource("10_v7jpn")]
 offset_left = -32.0
-offset_top = -32.0
+offset_top = -30.0
 offset_right = 8.0
-offset_bottom = 8.0
+offset_bottom = 10.0

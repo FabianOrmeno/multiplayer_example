@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://df84bjfdlp4lx"]
+[gd_scene load_steps=31 format=3 uid="uid://df84bjfdlp4lx"]
 
 [ext_resource type="Script" uid="uid://c3g0gk37yr2r2" path="res://scenes/player.gd" id="2_g2els"]
 [ext_resource type="PackedScene" uid="uid://c8ddyqqaq6lm" path="res://scenes/bullet.tscn" id="2_smehm"]
@@ -9,6 +9,7 @@
 [ext_resource type="AnimationNodeStateMachine" uid="uid://b21vc551xwe86" path="res://resources/movement.tres" id="7_smehm"]
 [ext_resource type="Script" uid="uid://6yht3jk70p8w" path="res://components/hurtbox.gd" id="8_smehm"]
 [ext_resource type="PackedScene" uid="uid://c3h2fm5awt1cx" path="res://ui/healthbar.tscn" id="9_ur7pv"]
+[ext_resource type="PackedScene" uid="uid://cv4400ra23lar" path="res://ui/remote_healthbar.tscn" id="10_y4r1p"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_smehm"]
 font_size = 20
@@ -362,7 +363,5 @@ tree_root = SubResource("AnimationNodeStateMachine_oprun")
 anim_player = NodePath("../AnimationPlayer")
 
 [node name="healthbar" parent="." instance=ExtResource("9_ur7pv")]
-offset_left = -295.0
-offset_top = -167.0
-offset_right = -295.0
-offset_bottom = -167.0
+
+[node name="RemoteHealthbar" parent="." instance=ExtResource("10_y4r1p")]

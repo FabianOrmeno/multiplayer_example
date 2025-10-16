@@ -1,0 +1,9 @@
+[gd_scene load_steps=4 format=3 uid="uid://co507epp7s8fo"]
+
+[ext_resource type="Script" uid="uid://blxifa6ta4vvb" path="res://autoloads/level_manager.gd" id="1_pgu7l"]
+[ext_resource type="PackedScene" uid="uid://cyjxojx3jo8wi" path="res://scenes/main.tscn" id="2_jmqug"]
+[ext_resource type="PackedScene" uid="uid://cfy25mfd4vcsf" path="res://lobby/victory_screen.tscn" id="3_jmqug"]
+
+[node name="LevelManager" type="Node"]
+script = ExtResource("1_pgu7l")
+levels = Array[PackedScene]([ExtResource("2_jmqug"), ExtResource("3_jmqug")])

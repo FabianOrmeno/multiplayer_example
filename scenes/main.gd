@@ -10,12 +10,17 @@ extends Node2D
 @onready var players: Node2D = $Players
 @onready var markers: Node2D = $Markers
 @onready var defeat_screen = $DefeatScreen
+@onready var meta: Meta = $Meta
+@onready var victory_screen: CanvasLayer = $Victory_screen
+
 var died = 0
 
 func _ready() -> void:
 	$Enemy2.connect("enemy_died", spawn_ice)
 	defeat_screen.hide()
+	victory_screen.hide()
 	var count = 0;
+	meta.players_ready.connect(_next_level)
 	for i in Game.players.size():
 		var player_data = Game.players[i]
 		var player_inst
@@ -73,4 +78,9 @@ func player_died(id):
 func defeated():
 	Debug.log("Jajaj, perdieron")
 	defeat_screen.show()
+
+@rpc("authority", "call_local", "reliable")
+func _next_level() -> void:
+	Debug.log("Waos, ganaron")
+	victory_screen.show()
 	

@@ -6,7 +6,7 @@ extends Node2D
 @export var detection_radius: float = 120.0
 @export var attack_range: float = 22.0
 @export var attack_cooldown: float = 0.8
-@onready var remote_healthbar: Healthbar = $RemoteHealthbar
+@onready var remote_healthbar: RemoteHealthBar = $RemoteHealthbar
 @onready var health_component: HealthComponent = $HealthComponent
 
 @onready var hurtbox = $Hurtbox

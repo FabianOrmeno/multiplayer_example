@@ -14,7 +14,7 @@ signal died
 
 
 @onready var healthbar: Healthbar = $healthbar
-@onready var remote_healthbar: Healthbar = $RemoteHealthbar
+@onready var remote_healthbar: RemoteHealthBar = $RemoteHealthbar
 @onready var label: Label = $Label
 @onready var multiplayer_synchronizer: MultiplayerSynchronizer = $MultiplayerSynchronizer
 @onready var input_synchronizer: InputSynchronizer = $InputSynchronizer

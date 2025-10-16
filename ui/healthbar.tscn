@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://c3h2fm5awt1cx"]
 
-[ext_resource type="Script" uid="uid://cwsiks77sb5si" path="res://ui/healthbar.gd" id="1_78psk"]
+[ext_resource type="Script" uid="uid://14hbaba3ku50" path="res://ui/healthbar.gd" id="1_78psk"]
 [ext_resource type="Texture2D" uid="uid://numudkjf2rwh" path="res://assets/GUISprite.png" id="1_l4sgg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_78psk"]
@@ -15,17 +15,11 @@ atlas = ExtResource("1_l4sgg")
 region = Rect2(31, 104, 46, 3)
 margin = Rect2(0, 8, 0, 10)
 
-[node name="healthbar" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="healthbar" type="CanvasLayer"]
 script = ExtResource("1_78psk")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="."]
-layout_mode = 0
+anchors_preset = -1
 anchor_left = 0.05625
 anchor_top = 0.0111111
 anchor_right = 0.209375
