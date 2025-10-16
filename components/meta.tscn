@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ccgcdw4h8segs"]
+
+[ext_resource type="Script" uid="uid://ckky0llyhdw4r" path="res://components/meta.gd" id="1_ij20f"]
+
+[node name="Meta" type="Area2D"]
+script = ExtResource("1_ij20f")

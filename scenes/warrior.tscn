@@ -384,20 +384,11 @@ spawn_path = NodePath(".")
 [node name="shield" parent="." instance=ExtResource("6_utaup")]
 
 [node name="healthbar" parent="." instance=ExtResource("7_bwxyh")]
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = -140.0
-offset_top = -85.0
-offset_right = -140.0
-offset_bottom = -85.0
-grow_horizontal = 1
-grow_vertical = 1
+
+[node name="HealthComponent" parent="." instance=ExtResource("8_hqs1p")]
 
 [node name="RemoteHealthbar" parent="." instance=ExtResource("8_3stqy")]
 offset_left = -32.0
-offset_top = -32.0
+offset_top = -31.0
 offset_right = 8.0
-offset_bottom = 8.0
-
-[node name="HealthComponent" parent="." instance=ExtResource("8_hqs1p")]
+offset_bottom = 9.0

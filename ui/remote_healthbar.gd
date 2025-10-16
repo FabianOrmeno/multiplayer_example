@@ -1,6 +1,5 @@
-class_name Healthbar
-extends CanvasLayer
-
+class_name RemoteHealthBar
+extends Control
 
 @onready var texture_progress_bar: TextureProgressBar = $TextureProgressBar
 
