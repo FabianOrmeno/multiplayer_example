@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://b5k4ck7werhqb"]
+[gd_scene load_steps=14 format=3 uid="uid://b5k4ck7werhqb"]
 
 [ext_resource type="Script" uid="uid://20g3akg0qlgo" path="res://scenes/torch.gd" id="1_my26j"]
 [ext_resource type="Texture2D" uid="uid://bg8gm2wnlpiof" path="res://assets/antorchas.png" id="2_my26j"]
@@ -76,13 +76,15 @@ advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_my26j"]
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_o2tjn"]
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_o2tjn"]
 states/Start/position = Vector2(214, 100)
 states/motion/node = SubResource("AnimationNodeAnimation_d4v33")
 states/motion/position = Vector2(643, 100)
 states/off/node = SubResource("AnimationNodeAnimation_ndh0a")
 states/off/position = Vector2(420, 100)
-transitions = ["Start", "off", SubResource("AnimationNodeStateMachineTransition_ktql7"), "off", "motion", SubResource("AnimationNodeStateMachineTransition_my26j")]
+transitions = ["Start", "off", SubResource("AnimationNodeStateMachineTransition_ktql7"), "off", "motion", SubResource("AnimationNodeStateMachineTransition_my26j"), "motion", "off", SubResource("AnimationNodeStateMachineTransition_o2tjn")]
 
 [node name="torch" type="Node2D"]
 script = ExtResource("1_my26j")
