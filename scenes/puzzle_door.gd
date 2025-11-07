@@ -5,7 +5,6 @@ extends Node
 @export var enemy: Frog
 
 # Lista de antorchas y la puerta
-var torches := []
 var enemy_defeated = false
 
 
