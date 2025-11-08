@@ -85,6 +85,8 @@ func _physics_process(delta: float) -> void:
 			weapon.rotation = global_position.direction_to(get_global_mouse_position()).angle()
 		if Input.is_action_just_pressed("second action"):
 			self.secundary_action()
+		if Input.is_action_just_pressed("información"):
+			showInfo()
 		
 		
 	update_sprite_direction(move_input)
@@ -150,6 +152,9 @@ func primary_action():
 func secundary_action():
 	pass
 
+func showInfo():
+	pass
+	
 func fire(pos, bullet):
 	if not bullets[bullet]:
 		Debug.log("falta la bala")
