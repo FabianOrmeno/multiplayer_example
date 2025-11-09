@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://bsvt7s20ar2nn"]
+[gd_scene load_steps=57 format=3 uid="uid://bsvt7s20ar2nn"]
 
 [ext_resource type="Script" uid="uid://nsypm3o4u547" path="res://scenes/warrior.gd" id="1_jq62g"]
 [ext_resource type="Texture2D" uid="uid://bca7fihyg8o1s" path="res://assets/character_9_frame32x32.png" id="2_kkak1"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://c3h2fm5awt1cx" path="res://ui/healthbar.tscn" id="7_bwxyh"]
 [ext_resource type="PackedScene" uid="uid://cv4400ra23lar" path="res://ui/remote_healthbar.tscn" id="8_3stqy"]
 [ext_resource type="PackedScene" uid="uid://sqqc1otkijsx" path="res://components/health_component.tscn" id="8_hqs1p"]
+[ext_resource type="PackedScene" uid="uid://c66fl8u5udhcf" path="res://ui/pause_menu.tscn" id="10_m0bhd"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_utaup"]
 radius = 5.09902
@@ -393,3 +394,5 @@ offset_left = -32.0
 offset_top = -31.0
 offset_right = 8.0
 offset_bottom = 9.0
+
+[node name="Pause_menu" parent="." instance=ExtResource("10_m0bhd")]
