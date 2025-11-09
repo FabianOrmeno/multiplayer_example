@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://bnu6a7h55bbc7"]
+[gd_scene load_steps=59 format=3 uid="uid://bnu6a7h55bbc7"]
 
 [ext_resource type="Script" uid="uid://c1sc3v50n8v5n" path="res://scenes/mage.gd" id="1_yb71v"]
 [ext_resource type="PackedScene" uid="uid://b3ttx4o2c3k5e" path="res://scenes/iceball.tscn" id="2_nc4w5"]
@@ -10,6 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://c3h2fm5awt1cx" path="res://ui/healthbar.tscn" id="8_66amf"]
 [ext_resource type="PackedScene" uid="uid://sqqc1otkijsx" path="res://components/health_component.tscn" id="9_aoi4v"]
 [ext_resource type="PackedScene" uid="uid://cv4400ra23lar" path="res://ui/remote_healthbar.tscn" id="10_v7jpn"]
+[ext_resource type="Script" uid="uid://dvvax2xtfc67f" path="res://scenes/control.gd" id="11_nu52m"]
+[ext_resource type="Texture2D" uid="uid://dopqmemmee78l" path="res://assets/Pergamino.png" id="12_trnrn"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nc4w5"]
 radius = 5.09902
@@ -368,6 +370,7 @@ libraries = {
 }
 
 [node name="Label" type="Label" parent="."]
+visible = false
 z_index = 1
 offset_left = -173.0
 offset_top = -54.0
@@ -398,3 +401,51 @@ offset_left = -32.0
 offset_top = -30.0
 offset_right = 8.0
 offset_bottom = 10.0
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("11_nu52m")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Control"]
+
+[node name="CenterContainer" type="CenterContainer" parent="Control/CanvasLayer"]
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -137.0
+offset_right = 15.0
+grow_horizontal = 0
+grow_vertical = 2
+scale = Vector2(0.9066469, 1.0199817)
+
+[node name="TextureRect" type="TextureRect" parent="Control/CanvasLayer/CenterContainer"]
+custom_minimum_size = Vector2(152, 162)
+layout_mode = 2
+texture = ExtResource("12_trnrn")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/CanvasLayer/CenterContainer/TextureRect"]
+layout_mode = 0
+offset_left = 37.50082
+offset_top = 20.412292
+offset_right = 114.70839
+offset_bottom = 134.13982
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_constants/line_separation = -4
+theme_override_constants/paragraph_separation = -4
+theme_override_font_sizes/normal_font_size = 6
+text = "M1
+Bola de fuego, interactua con antorchas
+
+M2
+Bola de hielo, si derrota a un enemigo lo vuelve un bloque de hielo
+
+WASD
+Movimiento"
+tab_size = 3
+context_menu_enabled = true

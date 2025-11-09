@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=4 uid="uid://cyjxojx3jo8wi"]
+[gd_scene load_steps=37 format=4 uid="uid://cyjxojx3jo8wi"]
 
 [ext_resource type="Script" uid="uid://djd6qfqjfysf1" path="res://scenes/main.gd" id="1_o5qli"]
 [ext_resource type="PackedScene" uid="uid://df84bjfdlp4lx" path="res://scenes/player.tscn" id="2_0wfyh"]
@@ -18,6 +18,8 @@
 [ext_resource type="PackedScene" uid="uid://bbbawsu6wdhuc" path="res://scenes/wall_destroy.tscn" id="16_jbj1t"]
 [ext_resource type="PackedScene" uid="uid://61dsv0ldi4fe" path="res://scenes/firecatcher.tscn" id="17_muem4"]
 [ext_resource type="PackedScene" uid="uid://c4h2sgflxrr34" path="res://scenes/raft.tscn" id="18_dp3eg"]
+[ext_resource type="Texture2D" uid="uid://bckal1uic8ki6" path="res://assets/Keyboard Extras.png" id="19_gqmmt"]
+[ext_resource type="Texture2D" uid="uid://duup10l8fnerl" path="res://assets/Emotes.png" id="20_yc10j"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ya4ey"]
 texture = ExtResource("8_85g3d")
@@ -3600,12 +3602,31 @@ scale = Vector2(1.01, 1)
 [node name="Raft" parent="Puzzle_Door2" instance=ExtResource("18_dp3eg")]
 position = Vector2(321, -392)
 
-[node name="Raft2" parent="Puzzle_Door2" node_paths=PackedStringArray("path") instance=ExtResource("18_dp3eg")]
+[node name="Raft2" parent="Puzzle_Door2" instance=ExtResource("18_dp3eg")]
 position = Vector2(321, -232)
-path = NodePath("../Path2D2")
 
 [node name="Path2D2" type="Path2D" parent="Puzzle_Door2"]
 curve = SubResource("Curve2D_dp3eg")
 
 [node name="Path2D" type="Path2D" parent="Puzzle_Door2"]
 curve = SubResource("Curve2D_0ld40")
+
+[node name="KeyboardExtras" type="Sprite2D" parent="."]
+modulate = Color(0.8548716, 1.4336928, 2.0715775, 1)
+self_modulate = Color(0.585062, 0.585062, 0.5850621, 1)
+z_index = -2
+z_as_relative = false
+position = Vector2(89, 150.00002)
+scale = Vector2(0.87931037, 1.1999999)
+texture = ExtResource("19_gqmmt")
+region_enabled = true
+region_rect = Rect2(1.2293701, 64.69123, 29.84851, 15.939514)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.35170877, 0.6104395, 0.89557123, 1)
+z_index = -2
+position = Vector2(89, 134)
+scale = Vector2(0.17, 0.168)
+texture = ExtResource("20_yc10j")
+region_enabled = true
+region_rect = Rect2(184.10556, 203.40343, 82.303375, 81.90773)

@@ -2,7 +2,11 @@ extends Player
 class_name  Warrior
 @onready var shield: Shield = $shield
 @onready var cant_attack: bool = false
+@onready var info_ui: CanvasLayer = $Control/CanvasLayer
 
+func showInfo():
+	info_ui.visible = not info_ui.visible
+	
 func setup(player_data: Statics.PlayerData, num):
 	super.setup(player_data, num)
 	shield.setup(player_data)

@@ -1,7 +1,7 @@
 class_name Raft
 extends Node2D
 
-@export var path: Path2D
+
 @export var passengers: Array[Node2D]
 @export var time: float = 10
 
@@ -11,6 +11,7 @@ var current_time = 0
 var dict: Dictionary[Node2D, Vector2] = {}
 
 
+@onready var path: Path2D = $"../Path2D"
 @onready var top_shape: CollisionShape2D = %TopShape
 @onready var bottom_shape: CollisionShape2D = %BottomShape
 @onready var right_shape: CollisionShape2D = %RightShape
