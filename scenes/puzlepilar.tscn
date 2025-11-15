@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://bdwmevxk0vrt1"]
+
+[ext_resource type="Texture2D" uid="uid://dqkbp8vsyjkkf" path="res://assets/walls_floor.png" id="1_7pabk"]
+[ext_resource type="Script" uid="uid://bsvgfmalw2lju" path="res://scenes/puzlepilar.gd" id="1_rwstd"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rwstd"]
+height = 42.0
+
+[node name="puzlepilar" type="Node2D"]
+script = ExtResource("1_rwstd")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0.10937548, -0.020020723)
+scale = Vector2(0.45377606, 0.54370415)
+texture = ExtResource("1_7pabk")
+region_enabled = true
+region_rect = Rect2(16, 15, 48, 81)
+
+[node name="Area2D" type="Area2D" parent="."]
+light_mask = 5
+visibility_layer = 5
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+light_mask = 5
+visibility_layer = 5
+shape = SubResource("CapsuleShape2D_rwstd")
+debug_color = Color(0.93637705, 0.21527854, 0.34866264, 0.41960785)

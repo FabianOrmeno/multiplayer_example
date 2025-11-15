@@ -1,4 +1,6 @@
+class_name IceCube
 extends RigidBody2D
+
 @onready var hurtbox = $Hurtbox
 var max_speed = 100
 
@@ -13,7 +15,7 @@ func take_damage(damage):
 		return
 	var areas = hurtbox.get_overlapping_areas()
 	for area in areas:
-		var warrior = area.get_parent().get_parent() as Warrior
+		var warrior = area.get_parent().get_parent().get_parent() as Warrior
 		if warrior:
 			Debug.log("ME PEGO EL GUERRERO")
 			var direcction = (self.global_position - warrior.global_position).normalized()

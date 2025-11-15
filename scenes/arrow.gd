@@ -1,3 +1,4 @@
+class_name Arrow
 extends Hitbox
 
 @export var max_speed = 500

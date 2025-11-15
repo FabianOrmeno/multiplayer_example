@@ -10,7 +10,7 @@ func _process(_delta):
 	if not is_multiplayer_authority():
 		return
 
-	if Input.is_action_just_pressed("informacion"):
+	if Input.is_action_just_pressed("información"):
 		toggle_info_panel()
 
 func toggle_info_panel():

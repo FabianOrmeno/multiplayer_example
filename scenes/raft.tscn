@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://btbj3m3s7echx" path="res://assets/Hana Caraka - Topdown Tileset [sample]/Props/Bridge - wood.png" id="2_sl03k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sl03k"]
-size = Vector2(46, 44)
+size = Vector2(42, 43)
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_sl03k"]
 properties/0/path = NodePath(".:position")
@@ -32,6 +32,7 @@ metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_sl03k")
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
@@ -49,12 +50,12 @@ shape = SubResource("RectangleShape2D_12u0i")
 unique_name_in_owner = true
 position = Vector2(0, 22)
 shape = SubResource("RectangleShape2D_12u0i")
-disabled = true
 
 [node name="LeftShape" type="CollisionShape2D" parent="AnimatableBody2D"]
 unique_name_in_owner = true
 position = Vector2(-22, 0)
 shape = SubResource("RectangleShape2D_rakhh")
+disabled = true
 
 [node name="RightShape" type="CollisionShape2D" parent="AnimatableBody2D"]
 unique_name_in_owner = true

@@ -1,5 +1,6 @@
 extends Node2D
 
+@export var enemies: Array[Enemy]
 @export var player_scene: PackedScene
 @export var dot_scene: PackedScene
 @export var mage_scene: PackedScene
@@ -16,7 +17,8 @@ extends Node2D
 var died = 0
 
 func _ready() -> void:
-	$Enemy2.connect("enemy_died", spawn_ice)
+	for enemy in enemies:
+		enemy.connect("enemy_died", spawn_ice)
 	defeat_screen.hide()
 	victory_screen.hide()
 	var count = 0;
