@@ -73,7 +73,6 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
-
 	var move_input = input_synchronizer.move_input
 	velocity = velocity.move_toward(move_input * max_speed, acceleration * delta)
 	move_and_slide()
