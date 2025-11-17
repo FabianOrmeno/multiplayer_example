@@ -49,3 +49,58 @@ text = "Main menu"
 [node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Quit"
+
+[node name="Quit?" type="MarginContainer" parent="."]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel2" type="Panel" parent="Quit?"]
+layout_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Quit?/Panel2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -21.5
+offset_top = -18.0
+offset_right = 21.5
+offset_bottom = 18.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="label_quit" type="Label" parent="Quit?/Panel2/VBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "hola"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Quit?/Panel2/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="yes" type="Button" parent="Quit?/Panel2/VBoxContainer2/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "yes"
+
+[node name="no" type="Button" parent="Quit?/Panel2/VBoxContainer2/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "no"
