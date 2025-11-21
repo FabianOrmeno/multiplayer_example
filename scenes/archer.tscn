@@ -452,3 +452,11 @@ tab_size = 3
 context_menu_enabled = true
 
 [node name="Pause_menu" parent="." instance=ExtResource("13_vbhtm")]
+
+[node name="arrow_couldown" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.25
+
+[node name="bomb_arrow_couldown" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.5
