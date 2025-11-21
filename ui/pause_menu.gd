@@ -96,7 +96,7 @@ func finish_vote(id) -> void:
 func all_quit(next_action: String) -> void:
 	if next_action == "main":
 		Debug.log("Returning main menu...")
-		get_tree().change_scene_to_file("res://ui/main_menu.tscn")
+		Lobby.go_to_menu()
 	elif next_action == "quit":
 		Debug.log("Quiting...")
 		get_tree().quit()
