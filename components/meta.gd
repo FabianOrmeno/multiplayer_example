@@ -1,6 +1,7 @@
 class_name Meta
 extends Area2D
 
+@export var chests: Array[Node2D]
 var players: Array[Player]
 signal players_ready
 
@@ -15,6 +16,8 @@ func _new_player(body: Node2D) -> void:
 		players.append(player)
 	Debug.log(players.size())
 	if players.size() == 3:
+		for chest in chests:
+			chest.open()
 		players_ready.emit()
 
 func _player_out(body: Node2D) -> void:

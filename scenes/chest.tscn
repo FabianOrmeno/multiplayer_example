@@ -1,0 +1,65 @@
+[gd_scene load_steps=7 format=3 uid="uid://6kgsw3hg6hd7"]
+
+[ext_resource type="Texture2D" uid="uid://blweednimkvmi" path="res://assets/RPG Chests.png" id="1_oii8l"]
+[ext_resource type="Script" uid="uid://bdj7imodv4raa" path="res://scenes/chest.gd" id="1_sy5e1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sy5e1"]
+size = Vector2(20, 16)
+
+[sub_resource type="Animation" id="Animation_oii8l"]
+resource_name = "opening"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.28, 0.3, 0.33333334, 0.36666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [2, 11, 20, 20, 29]
+}
+
+[sub_resource type="Animation" id="Animation_sy5e1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sy5e1"]
+_data = {
+&"RESET": SubResource("Animation_sy5e1"),
+&"opening": SubResource("Animation_oii8l")
+}
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_sy5e1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(9.536743e-07, 0)
+scale = Vector2(1.066, 1)
+texture = ExtResource("1_oii8l")
+hframes = 9
+vframes = 4
+frame = 2
+region_rect = Rect2(16, 15, 48, 81)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_sy5e1")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_sy5e1")
+}
