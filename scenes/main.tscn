@@ -3742,15 +3742,19 @@ raft = NodePath("../Raft")
 position = Vector2(249, -410)
 
 [node name="Button" parent="Puzzle_Door2" instance=ExtResource("20_jscy8")]
+z_index = -1
 position = Vector2(517, -235)
 
 [node name="Button2" parent="Puzzle_Door2" instance=ExtResource("20_jscy8")]
+z_index = -1
 position = Vector2(517, -292)
 
 [node name="Button3" parent="Puzzle_Door2" instance=ExtResource("20_jscy8")]
+z_index = -1
 position = Vector2(519, -399)
 
 [node name="Button4" parent="Puzzle_Door2" instance=ExtResource("20_jscy8")]
+z_index = -1
 position = Vector2(195, -342)
 
 [node name="KeyboardExtras" type="Sprite2D" parent="."]
