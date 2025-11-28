@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=3 uid="uid://jy540f44o2yf"]
+[gd_scene load_steps=61 format=3 uid="uid://jy540f44o2yf"]
 
 [ext_resource type="Script" uid="uid://bnk17avlc8ydn" path="res://scenes/archer.gd" id="1_ejvcm"]
 [ext_resource type="Texture2D" uid="uid://dnij2foc5ir7i" path="res://assets/character_17_frame32x32.png" id="2_c85qa"]
@@ -325,6 +325,8 @@ properties/0/path = NodePath(".:position")
 properties/0/spawn = true
 properties/0/replication_mode = 1
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_vbhtm"]
+
 [node name="Player" type="CharacterBody2D"]
 y_sort_enabled = true
 motion_mode = 1
@@ -460,3 +462,9 @@ wait_time = 0.25
 [node name="bomb_arrow_couldown" type="Timer" parent="."]
 unique_name_in_owner = true
 wait_time = 0.5
+
+[node name="revive_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="revive_area"]
+scale = Vector2(4, 4)
+shape = SubResource("CircleShape2D_vbhtm")

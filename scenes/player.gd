@@ -27,6 +27,7 @@ signal died
 @onready var pickable_marker_2d: Marker2D = $PickableMarker2D
 @onready var health_component: HealthComponent = $HealthComponent
 @onready var texture_progress_bar: TextureProgressBar = $TextureProgressBar
+@onready var revive_area: Area2D = $revive_area
 
 
 var health: int = 0
@@ -38,6 +39,9 @@ var pickable: Node2D
 var animation_state: String = "idle_"
 var animation_direction: String = "down"
 var weapon: Node2D
+
+var is_alive: bool = true
+var players_deads: Array[Player]
 
 func update_sprite_direction(input: Vector2) -> void:
 	match input:
@@ -70,9 +74,14 @@ func _ready() -> void:
 		bullet_spawner.add_spawnable_scene(bullet_scene.resource_path)
 	for bullet in bullets.values():
 		bullet_spawner.add_spawnable_scene(bullet.resource_path)
+	revive_area.body_entered.connect(give_access)
+	revive_area.body_exited.connect(denied_access)
+	revive_area.monitoring = false
 
 
 func _physics_process(delta: float) -> void:
+	if not is_alive:
+		return
 	var move_input = input_synchronizer.move_input
 	velocity = velocity.move_toward(move_input * max_speed, acceleration * delta)
 	move_and_slide()
@@ -86,6 +95,10 @@ func _physics_process(delta: float) -> void:
 			self.secundary_action()
 		if Input.is_action_just_pressed("información"):
 			showInfo()
+		if Input.is_action_just_pressed("revive"):
+			for player in players_deads:
+				player.revive.rpc()
+			players_deads.clear()
 		
 		
 	update_sprite_direction(move_input)
@@ -141,8 +154,9 @@ func take_damage_local(damage: int):
 @rpc("authority", "call_local", "reliable")
 func die():
 	emit_signal("died", id)
-	if is_inside_tree():
-		queue_free()
+	is_alive = false
+	modulate = Color(0.5, 0.5, 0.5, 1)
+	revive_area.monitoring = true
 
 
 func primary_action():
@@ -200,3 +214,26 @@ func drop():
 	node.global_position = pickable_marker_2d.global_position
 	get_parent().add_child(node)
 	picked_node = null
+
+func all_died() -> void:
+	if is_inside_tree():
+		queue_free()
+
+func give_access(body: Node2D) -> void:
+	var player = body as Player
+	if player:
+		player.players_deads.append(self)
+		
+@rpc("any_peer", "call_local", "reliable")
+func revive():
+	if is_alive:
+		return
+	modulate = Color.WHITE
+	is_alive = true
+	health_component.health = health_component.max_health
+	revive_area.monitoring = false
+
+func denied_access(body: Node2D) -> void:
+	var player = body as Player
+	if player:
+		player.players_deads.erase(self)

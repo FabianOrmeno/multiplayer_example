@@ -38,7 +38,7 @@ func _find_target() -> CharacterBody2D:
 
 	if players_container:
 		for child in players_container.get_children():
-			if child is CharacterBody2D:
+			if child is Player and child.is_alive:
 				var d := global_position.distance_to(child.global_position)
 				if d < detection_radius and d < best_d:
 					best = child

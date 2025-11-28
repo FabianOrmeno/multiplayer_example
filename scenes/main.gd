@@ -74,6 +74,8 @@ func player_died(id):
 	for player in Game.players:
 		all_defeated = all_defeated and player.defeated
 	if all_defeated:
+		for player in players.get_children():
+			player.all_died()
 		defeated.rpc()
 		
 @rpc("authority", "call_local", "reliable")
