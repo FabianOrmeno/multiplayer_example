@@ -1,29 +1,102 @@
-[gd_scene load_steps=5 format=3 uid="uid://d24mpsfdnw260"]
+[gd_scene load_steps=15 format=3 uid="uid://d24mpsfdnw260"]
 
-[ext_resource type="Texture2D" uid="uid://drs0g56pvhgi5" path="res://assets/Hana Caraka - Topdown Tileset [sample]/Props/Tree.png" id="1_mi6dp"]
 [ext_resource type="Script" uid="uid://c5wq0je4jnycv" path="res://scenes/button.gd" id="1_rhj8v"]
+[ext_resource type="Texture2D" uid="uid://cf3cdrwnvvbj2" path="res://assets/chococake_buttons.png" id="2_rhj8v"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_rhj8v"]
-radius = 26.9258
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3q610"]
+size = Vector2(16, 16)
 
 [sub_resource type="LabelSettings" id="LabelSettings_rhj8v"]
 font_size = 20
 outline_size = 2
 outline_color = Color(0, 0, 0, 1)
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_rhj8v"]
+animation = &"depress"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3q610"]
+animation = &"press"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_i7y4x"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_1bdt2"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8m7bo"]
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_rhj8v"]
+states/depress/node = SubResource("AnimationNodeAnimation_rhj8v")
+states/depress/position = Vector2(547, 98)
+states/press/node = SubResource("AnimationNodeAnimation_3q610")
+states/press/position = Vector2(363, 101)
+transitions = ["Start", "press", SubResource("AnimationNodeStateMachineTransition_i7y4x"), "press", "depress", SubResource("AnimationNodeStateMachineTransition_1bdt2"), "depress", "press", SubResource("AnimationNodeStateMachineTransition_8m7bo")]
+graph_offset = Vector2(-41, 33)
+
+[sub_resource type="Animation" id="Animation_rhj8v"]
+resource_name = "press"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Button:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_3q610"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Button:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_i7y4x"]
+resource_name = "depress"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Button:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [1, 0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_i7y4x"]
+_data = {
+&"RESET": SubResource("Animation_3q610"),
+&"depress": SubResource("Animation_i7y4x"),
+&"press": SubResource("Animation_rhj8v")
+}
+
 [node name="Button" type="Node2D"]
 script = ExtResource("1_rhj8v")
 
-[node name="Tree" type="Sprite2D" parent="."]
-position = Vector2(0, -17)
-texture = ExtResource("1_mi6dp")
+[node name="Button" type="Sprite2D" parent="."]
+texture = ExtResource("2_rhj8v")
+hframes = 2
 region_enabled = true
-region_rect = Rect2(0, 0, 32, 48)
+region_rect = Rect2(96, 0, 32, 16)
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("CircleShape2D_rhj8v")
+shape = SubResource("RectangleShape2D_3q610")
 
 [node name="Label" type="Label" parent="."]
 visible = false
@@ -34,3 +107,12 @@ offset_bottom = -17.0
 text = "press e"
 label_settings = SubResource("LabelSettings_rhj8v")
 horizontal_alignment = 1
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_rhj8v")
+anim_player = NodePath("../AnimationPlayer")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_i7y4x")
+}

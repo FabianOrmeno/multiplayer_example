@@ -3699,7 +3699,7 @@ position = Vector2(260, 156)
 [node name="Puzzle_Door2" type="Node" parent="." node_paths=PackedStringArray("door", "interactables", "enemy")]
 script = ExtResource("12_a8y0u")
 door = NodePath("Door")
-interactables = [NodePath("Button"), NodePath("Button2"), NodePath("Button3")]
+interactables = [NodePath("Button"), NodePath("Button2"), NodePath("Button3"), NodePath("Button4")]
 enemy = NodePath("Enemy")
 
 [node name="Door" parent="Puzzle_Door2" instance=ExtResource("12_eb6dy")]
@@ -3742,13 +3742,16 @@ raft = NodePath("../Raft")
 position = Vector2(249, -410)
 
 [node name="Button" parent="Puzzle_Door2" instance=ExtResource("20_jscy8")]
-position = Vector2(521, -234)
+position = Vector2(517, -235)
 
 [node name="Button2" parent="Puzzle_Door2" instance=ExtResource("20_jscy8")]
 position = Vector2(517, -292)
 
 [node name="Button3" parent="Puzzle_Door2" instance=ExtResource("20_jscy8")]
 position = Vector2(519, -399)
+
+[node name="Button4" parent="Puzzle_Door2" instance=ExtResource("20_jscy8")]
+position = Vector2(195, -342)
 
 [node name="KeyboardExtras" type="Sprite2D" parent="."]
 modulate = Color(0.8548716, 1.4336928, 2.0715775, 1)
