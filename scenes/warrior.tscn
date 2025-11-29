@@ -447,7 +447,10 @@ M2(Hold) + M1
 Deflectar bolas de fuego y hielo con el escudo
 
 WASD
-Movimiento"
+Movimiento
+
+R
+Revivir compañero caido"
 tab_size = 3
 context_menu_enabled = true
 

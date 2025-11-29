@@ -33,6 +33,7 @@ func _ready() -> void:
 		elif Statics.get_role_name(player_data.role) == "Arquero":
 			player_inst = archer_scene.instantiate()
 		player_inst.connect("died", player_died)
+		player_inst.connect("revived", player_revived)
 		players.add_child(player_inst)
 		player_inst.global_position = markers.get_child(i).global_position
 		player_inst.setup(player_data, i)
@@ -77,7 +78,7 @@ func player_died(id):
 		for player in players.get_children():
 			player.all_died()
 		defeated.rpc()
-		
+	
 @rpc("authority", "call_local", "reliable")
 func defeated():
 	Debug.log("Jajaj, perdieron")
@@ -87,4 +88,7 @@ func defeated():
 func _next_level() -> void:
 	Debug.log("Waos, ganaron")
 	victory_screen.show()
+
+func player_revived(id) -> void:
+	Game.players[id].defeated = false
 	

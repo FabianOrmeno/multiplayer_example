@@ -449,7 +449,9 @@ Magic Arrow, stunea a enemigos y rompe estructuras fragiles
 
 WASD
 Movimiento
-"
+
+R
+Revivir compañero caido"
 tab_size = 3
 context_menu_enabled = true
 

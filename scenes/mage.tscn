@@ -449,7 +449,10 @@ M2
 Bola de hielo, si derrota a un enemigo lo vuelve un bloque de hielo
 
 WASD
-Movimiento"
+Movimiento
+
+R
+Revivir compañero caido"
 tab_size = 3
 context_menu_enabled = true
 

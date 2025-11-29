@@ -3,6 +3,7 @@ extends CharacterBody2D
 
 signal dot_spawn_requested
 signal died
+signal revived
 
 @export var max_speed: int = 100
 @export var acceleration: int = 800
@@ -232,6 +233,7 @@ func revive():
 	is_alive = true
 	health_component.health = health_component.max_health
 	revive_area.monitoring = false
+	emit_signal("revived", id)
 
 func denied_access(body: Node2D) -> void:
 	var player = body as Player
