@@ -31,6 +31,7 @@ func _input(event: InputEvent) -> void:
 		if not pause_owner and not get_tree().paused:
 			set_pause.rpc(true)
 			pause_owner = true
+			
 		elif pause_owner and get_tree().paused:
 			set_pause.rpc(false)
 			pause_owner = false
@@ -96,6 +97,7 @@ func finish_vote(id) -> void:
 func all_quit(next_action: String) -> void:
 	if next_action == "main":
 		Debug.log("Returning main menu...")
+		Score.hide_score()
 		Lobby.go_to_menu()
 	elif next_action == "quit":
 		Debug.log("Quiting...")
@@ -105,6 +107,6 @@ func all_quit(next_action: String) -> void:
 @rpc("any_peer", "call_local", "reliable")
 func change_next(name: String) -> void:
 	if name == "main":
-		label_quit.text = "back to main menu?"
+		label_quit.text = "Back\n main menu?"
 	if name == "quit":
-		label_quit.text = "quit?"
+		label_quit.text = "Quit?"
