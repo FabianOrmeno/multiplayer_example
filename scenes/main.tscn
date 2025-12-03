@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=4 uid="uid://cyjxojx3jo8wi"]
+[gd_scene load_steps=42 format=4 uid="uid://cyjxojx3jo8wi"]
 
 [ext_resource type="Script" uid="uid://djd6qfqjfysf1" path="res://scenes/main.gd" id="1_o5qli"]
 [ext_resource type="PackedScene" uid="uid://df84bjfdlp4lx" path="res://scenes/player.tscn" id="2_0wfyh"]
@@ -24,6 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://d24mpsfdnw260" path="res://scenes/button.tscn" id="20_jscy8"]
 [ext_resource type="Texture2D" uid="uid://duup10l8fnerl" path="res://assets/Emotes.png" id="20_yc10j"]
 [ext_resource type="PackedScene" uid="uid://6kgsw3hg6hd7" path="res://scenes/chest.tscn" id="23_pm3ni"]
+[ext_resource type="PackedScene" uid="uid://ctmeqtje6818s" path="res://scenes/coin.tscn" id="25_og1vs"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ya4ey"]
 texture = ExtResource("8_85g3d")
@@ -3776,3 +3777,51 @@ scale = Vector2(0.17, 0.168)
 texture = ExtResource("20_yc10j")
 region_enabled = true
 region_rect = Rect2(184.10556, 203.40343, 82.303375, 81.90773)
+
+[node name="Coin" parent="." instance=ExtResource("25_og1vs")]
+position = Vector2(39, 54)
+
+[node name="Coin2" parent="." instance=ExtResource("25_og1vs")]
+position = Vector2(69, 53)
+
+[node name="Coin3" parent="." instance=ExtResource("25_og1vs")]
+position = Vector2(136, 135)
+
+[node name="Coin4" parent="." instance=ExtResource("25_og1vs")]
+position = Vector2(167, 134)
+
+[node name="Coin5" parent="." instance=ExtResource("25_og1vs")]
+position = Vector2(152, 110)
+
+[node name="Coin6" parent="." instance=ExtResource("25_og1vs")]
+position = Vector2(312, 113)
+
+[node name="Coin7" parent="." instance=ExtResource("25_og1vs")]
+position = Vector2(315, 69)
+
+[node name="Coin8" parent="." instance=ExtResource("25_og1vs")]
+position = Vector2(496, -261)
+
+[node name="Coin9" parent="." instance=ExtResource("25_og1vs")]
+position = Vector2(501, -411)
+
+[node name="Coin10" parent="." instance=ExtResource("25_og1vs")]
+position = Vector2(196, -318)
+
+[node name="Coin11" parent="." instance=ExtResource("25_og1vs")]
+position = Vector2(196, -372)
+
+[node name="Coin12" parent="." instance=ExtResource("25_og1vs")]
+position = Vector2(289, -336)
+
+[node name="Coin13" parent="." instance=ExtResource("25_og1vs")]
+position = Vector2(196, -658)
+
+[node name="Coin14" parent="." instance=ExtResource("25_og1vs")]
+position = Vector2(222, -678)
+
+[node name="Coin15" parent="." instance=ExtResource("25_og1vs")]
+position = Vector2(283, -659)
+
+[node name="Coin16" parent="." instance=ExtResource("25_og1vs")]
+position = Vector2(257, -684)

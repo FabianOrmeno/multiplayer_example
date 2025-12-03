@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://c7k17xqbr2v1n"]
+
+[ext_resource type="Script" uid="uid://b7dop460nvt5k" path="res://autoloads/score.gd" id="1_wl1o4"]
+
+[node name="Score" type="Node"]
+script = ExtResource("1_wl1o4")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PlayerScore" type="Label" parent="CanvasLayer"]
+unique_name_in_owner = true
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 12.0
+grow_horizontal = 2
+text = "Score: 0"

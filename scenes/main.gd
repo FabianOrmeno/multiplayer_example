@@ -42,6 +42,7 @@ func _ready() -> void:
 		count += 1
 	await get_tree().create_timer(5).timeout
 	Debug.log(get_tree().get_nodes_in_group("player").size())
+	Score.show_score()
 
 func _on_dot_spawn(pos):
 	spawn_dot.rpc_id(1, pos)
