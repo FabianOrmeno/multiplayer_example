@@ -3673,7 +3673,7 @@ texture = ExtResource("19_gqmmt")
 region_enabled = true
 region_rect = Rect2(1.2293701, 64.69123, 29.84851, 15.939514)
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Exclamation" type="Sprite2D" parent="."]
 modulate = Color(0.35170877, 0.6104395, 0.89557123, 1)
 z_index = -2
 position = Vector2(89, 134)
