@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=3 uid="uid://bsvt7s20ar2nn"]
+[gd_scene load_steps=60 format=3 uid="uid://bsvt7s20ar2nn"]
 
 [ext_resource type="Script" uid="uid://nsypm3o4u547" path="res://scenes/warrior.gd" id="1_jq62g"]
 [ext_resource type="Texture2D" uid="uid://bca7fihyg8o1s" path="res://assets/character_9_frame32x32.png" id="2_kkak1"]
@@ -324,6 +324,8 @@ properties/0/path = NodePath(".:position")
 properties/0/spawn = true
 properties/0/replication_mode = 1
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_8m2sp"]
+
 [node name="Player" type="CharacterBody2D"]
 y_sort_enabled = true
 motion_mode = 1
@@ -445,8 +447,17 @@ M2(Hold) + M1
 Deflectar bolas de fuego y hielo con el escudo
 
 WASD
-Movimiento"
+Movimiento
+
+R
+Revivir compañero caido"
 tab_size = 3
 context_menu_enabled = true
 
 [node name="Pause_menu" parent="." instance=ExtResource("12_8m2sp")]
+
+[node name="revive_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="revive_area"]
+scale = Vector2(4, 4)
+shape = SubResource("CircleShape2D_8m2sp")
