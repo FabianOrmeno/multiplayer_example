@@ -87,7 +87,7 @@ func defeated():
 @rpc("authority", "call_local", "reliable")
 func _next_level() -> void:
 	Debug.log("Waos, ganaron")
-	#dvictory_screen.show()
+	victory_screen.show()
 
 func player_revived(id) -> void:
 	Game.players[id].defeated = false
