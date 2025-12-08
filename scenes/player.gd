@@ -239,3 +239,7 @@ func denied_access(body: Node2D) -> void:
 	var player = body as Player
 	if player:
 		player.players_deads.erase(self)
+
+func get_coin(coin: Coin) -> void:
+	if is_multiplayer_authority():
+		Score.update_score(coin.Value)
