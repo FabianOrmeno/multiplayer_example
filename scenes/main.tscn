@@ -3527,7 +3527,6 @@ tile_set = SubResource("TileSet_muem4")
 y_sort_enabled = true
 
 [node name="Markers" type="Node2D" parent="."]
-position = Vector2(203, -830)
 
 [node name="Marker2D" type="Marker2D" parent="Markers"]
 position = Vector2(24, 168)

@@ -754,7 +754,7 @@ use_kinematic_bodies = true
 navigation_enabled = false
 
 [node name="Markers" type="Node2D" parent="."]
-position = Vector2(10, -1741)
+position = Vector2(8, -13)
 
 [node name="Marker2D" type="Marker2D" parent="Markers"]
 position = Vector2(131, 168)
