@@ -6,6 +6,7 @@ func _ready():
 	canvas_layer.visible = false
 
 func _process(_delta):
+	return
 	# Solo el jugador local debe detectar input
 	if not is_multiplayer_authority():
 		return

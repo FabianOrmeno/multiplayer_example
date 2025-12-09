@@ -443,10 +443,10 @@ theme_override_constants/line_separation = -4
 theme_override_constants/paragraph_separation = -4
 theme_override_font_sizes/normal_font_size = 6
 text = "M1
-Bola de fuego, interactua con antorchas
+Bola de fuego: hace daño e interactua con antorchas
 
 M2
-Bola de hielo, si derrota a un enemigo lo vuelve un bloque de hielo
+Bola de hielo: hace daño y si derrota a un enemigo lo vuelve un bloque de hielo
 
 WASD
 Movimiento

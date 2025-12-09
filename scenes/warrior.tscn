@@ -437,11 +437,11 @@ theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_constants/line_separation = -4
 theme_override_constants/paragraph_separation = -4
 theme_override_font_sizes/normal_font_size = 6
-text = "M1
-Espadazo, puede empujar bloques de hielo
+text = "M1 (click izquierdo)
+Espadazo: daña enemigos y puede empujar bloques de hielo
 
-M2
-Escudo, bloquea bolas de fuego y hielo
+M2 (click izqierdo)
+Escudo: levanta el escudo
 
 M2(Hold) + M1
 Deflectar bolas de fuego y hielo con el escudo
