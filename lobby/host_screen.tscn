@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://bb87qnq3164s5"]
+[gd_scene load_steps=6 format=3 uid="uid://bb87qnq3164s5"]
 
 [ext_resource type="PackedScene" uid="uid://cgsspji18smle" path="res://lobby/lobby_screen.tscn" id="1_uvmm6"]
 [ext_resource type="Script" uid="uid://layh08o4sto4" path="res://lobby/host_screen.gd" id="2_l54gy"]
+[ext_resource type="FontFile" uid="uid://cbcegtquroqbe" path="res://assets/unifont.ttf" id="3_d0kcq"]
+[ext_resource type="Texture2D" uid="uid://dvdssk8gxkmh3" path="res://assets/Inventory.png" id="4_50f1p"]
+[ext_resource type="Texture2D" uid="uid://ldqktb8n3xrl" path="res://assets/OldDungeon.png" id="5_l36ea"]
 
 [node name="HostScreen" instance=ExtResource("1_uvmm6")]
 script = ExtResource("2_l54gy")
@@ -28,17 +31,20 @@ layout_mode = 2
 [node name="Label" type="Label" parent="MarginContainer2/VBoxContainer/MarginContainer/Control/MarginContainer2_VBoxContainer_MarginContainer_Panel#PanelContainer/Panel_MarginContainer2_VBoxContainer_MarginContainer_Panel_MarginContainer2_VBoxContainer_MarginContainer_Panel#PanelContainer#MarginContainer/VBoxContainer/HBoxContainer" index="0"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("3_d0kcq")
 text = "Player"
 
 [node name="PlayerName" type="LineEdit" parent="MarginContainer2/VBoxContainer/MarginContainer/Control/MarginContainer2_VBoxContainer_MarginContainer_Panel#PanelContainer/Panel_MarginContainer2_VBoxContainer_MarginContainer_Panel_MarginContainer2_VBoxContainer_MarginContainer_Panel#PanelContainer#MarginContainer/VBoxContainer/HBoxContainer" index="1"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_d0kcq")
 alignment = 1
 
 [node name="HostButton" type="Button" parent="MarginContainer2/VBoxContainer/MarginContainer/Control/MarginContainer2_VBoxContainer_MarginContainer_Panel#PanelContainer/Panel_MarginContainer2_VBoxContainer_MarginContainer_Panel_MarginContainer2_VBoxContainer_MarginContainer_Panel#PanelContainer#MarginContainer/VBoxContainer" index="1"]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_d0kcq")
 text = "Host
 "
 
@@ -50,6 +56,23 @@ theme_override_colors/font_color = Color(1, 0.647059, 0, 1)
 text = "An error occurred · o ·)>"
 horizontal_alignment = 1
 
+[node name="Sprite2D" type="Sprite2D" parent="MarginContainer2/VBoxContainer/MarginContainer/Control/MarginContainer2_VBoxContainer_MarginContainer_Panel#PanelContainer/Panel_MarginContainer2_VBoxContainer_MarginContainer_Panel_MarginContainer2_VBoxContainer_MarginContainer_Panel#PanelContainer#MarginContainer" index="1"]
+z_index = -1
+position = Vector2(314, 145)
+scale = Vector2(10.166667, 3.5000002)
+texture = ExtResource("4_50f1p")
+region_enabled = true
+region_rect = Rect2(16, 16, 48, 16)
+
 [node name="ErrorTimer" type="Timer" parent="." index="1"]
 wait_time = 3.0
 one_shot = true
+
+[node name="Sprite2D" parent="." index="2"]
+visible = false
+
+[node name="Sprite2D2" type="Sprite2D" parent="." index="3"]
+z_index = -2
+position = Vector2(967.00006, 376.49997)
+scale = Vector2(1.1291668, 1.1435183)
+texture = ExtResource("5_l36ea")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=4 uid="uid://ve6xkfhsh5v3"]
+[gd_scene load_steps=44 format=4 uid="uid://ve6xkfhsh5v3"]
 
 [ext_resource type="Script" uid="uid://8uuih318tscf" path="res://scenes/final_screen.gd" id="1_cgmki"]
 [ext_resource type="PackedScene" uid="uid://df84bjfdlp4lx" path="res://scenes/player.tscn" id="2_til1u"]
@@ -17,10 +17,12 @@
 [ext_resource type="Texture2D" uid="uid://cgaobodxh85e5" path="res://assets/Hana Caraka - Topdown Tileset [sample]/Tileset/Extras/texture.png" id="15_td8vn"]
 [ext_resource type="Texture2D" uid="uid://0h5ory0bx14x" path="res://assets/Hana Caraka - Topdown Tileset [sample]/Tileset/Extras/tufts and lumps.png" id="16_yneag"]
 [ext_resource type="Texture2D" uid="uid://drs0g56pvhgi5" path="res://assets/Hana Caraka - Topdown Tileset [sample]/Props/Tree.png" id="17_vk55n"]
+[ext_resource type="FontFile" uid="uid://cxrjgo8so6fmx" path="res://assets/Pixelmax-Regular.otf" id="18_4mgoj"]
 [ext_resource type="Script" uid="uid://dbrmxvdd58m5o" path="res://scenes/return_door.gd" id="18_da2cp"]
 [ext_resource type="Texture2D" uid="uid://bmwk1fh76c5gb" path="res://assets/Treasure+.png" id="18_q4swn"]
 [ext_resource type="Texture2D" uid="uid://duup10l8fnerl" path="res://assets/Emotes.png" id="20_17vcw"]
 [ext_resource type="Texture2D" uid="uid://blweednimkvmi" path="res://assets/RPG Chests.png" id="21_bjeg3"]
+[ext_resource type="FontFile" uid="uid://cbcegtquroqbe" path="res://assets/unifont.ttf" id="21_hdaxp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q4swn"]
 texture = ExtResource("7_til1u")
@@ -711,6 +713,7 @@ offset_left = 67.0
 offset_top = 85.0
 offset_right = 112.0
 offset_bottom = 238.0
+theme_override_fonts/bold_font = ExtResource("18_4mgoj")
 bbcode_enabled = true
 text = "[font_size=10][wave amp=20 freq=4 connected=1][b][color=#FFB347]
 V
@@ -797,11 +800,23 @@ offset_left = 216.0
 offset_top = -1560.0
 offset_right = 280.0
 offset_bottom = -173.0
+theme_override_fonts/normal_font = ExtResource("21_hdaxp")
+theme_override_fonts/bold_font = ExtResource("18_4mgoj")
 bbcode_enabled = true
 text = "
 [wave amp=30 freq=8][b][color=#FFB347]GRACIAS POR JUGAR[/color][/b][/wave]
 
 
+[font_size=6][color=#FFFFFF]
+Roman Czyborra
+Unifont
+
+
+Fitrah Type
+Pixelmax
+[/color][/font_size]
+
+[font_size=8][b][color=#FFE68A]FUENTES[/color][/b][/font_size]
 
 [font_size=6][color=#FFFFFF]
 IoPn (itch.io)
@@ -836,7 +851,20 @@ Tab bajo el agua
 
 
 DibbelGames (itch.io)
-Exclamación bajo el agua[/color][/font_size]
+Exclamación bajo el agua
+
+
+BDragon1727 (itch.io)
+Simbolo de carga
+
+
+SeeOne (itch.io)
+Fondo
+
+
+pixel-boy (itch.io)
+Iconos de jugador
+[/color][/font_size]
 
 
 [font_size=8][b][color=#FFE68A]UI[/color][/b][/font_size]

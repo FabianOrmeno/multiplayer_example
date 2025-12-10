@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=3 uid="uid://bsvt7s20ar2nn"]
+[gd_scene load_steps=61 format=3 uid="uid://bsvt7s20ar2nn"]
 
 [ext_resource type="Script" uid="uid://nsypm3o4u547" path="res://scenes/warrior.gd" id="1_jq62g"]
 [ext_resource type="Texture2D" uid="uid://bca7fihyg8o1s" path="res://assets/character_9_frame32x32.png" id="2_kkak1"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" uid="uid://dvvax2xtfc67f" path="res://scenes/control.gd" id="10_m0bhd"]
 [ext_resource type="Texture2D" uid="uid://dopqmemmee78l" path="res://assets/Pergamino.png" id="11_64u8w"]
 [ext_resource type="PackedScene" uid="uid://c66fl8u5udhcf" path="res://ui/pause_menu.tscn" id="12_8m2sp"]
+[ext_resource type="FontFile" uid="uid://cbcegtquroqbe" path="res://assets/unifont.ttf" id="12_mmtbg"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_utaup"]
 radius = 5.09902
@@ -434,9 +435,8 @@ offset_top = 20.412292
 offset_right = 114.70839
 offset_bottom = 134.13982
 theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_constants/line_separation = -4
-theme_override_constants/paragraph_separation = -4
-theme_override_font_sizes/normal_font_size = 6
+theme_override_fonts/normal_font = ExtResource("12_mmtbg")
+theme_override_font_sizes/normal_font_size = 5
 text = "M1 (click izquierdo)
 Espadazo: daña enemigos y puede empujar bloques de hielo
 

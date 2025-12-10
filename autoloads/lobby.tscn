@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bpbc81lwktlxs"]
+[gd_scene load_steps=4 format=3 uid="uid://bpbc81lwktlxs"]
 
 [ext_resource type="Script" uid="uid://b6e84r7fxxg4h" path="res://autoloads/lobby.gd" id="1_485el"]
 [ext_resource type="Theme" uid="uid://bwgdrcgopd0s1" path="res://lobby/lobby_theme.tres" id="1_boshi"]
+[ext_resource type="FontFile" uid="uid://cxrjgo8so6fmx" path="res://assets/Pixelmax-Regular.otf" id="3_88ddu"]
 
 [node name="Lobby" type="Node"]
 script = ExtResource("1_485el")
@@ -69,10 +70,12 @@ layout_mode = 2
 
 [node name="Player" type="Label" parent="CanvasLayer/MessageContainer/ServerDisconnected/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_88ddu")
 text = "Server disconnected"
 horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="CanvasLayer/MessageContainer/ServerDisconnected/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_88ddu")
 text = "Returning to main menu ..."
 horizontal_alignment = 1

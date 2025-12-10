@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://cgsspji18smle"]
+[gd_scene load_steps=5 format=3 uid="uid://cgsspji18smle"]
 
 [ext_resource type="Theme" uid="uid://bwgdrcgopd0s1" path="res://lobby/lobby_theme.tres" id="1_0ce57"]
+[ext_resource type="Texture2D" uid="uid://ldqktb8n3xrl" path="res://assets/OldDungeon.png" id="2_684nl"]
+[ext_resource type="FontFile" uid="uid://cxrjgo8so6fmx" path="res://assets/Pixelmax-Regular.otf" id="2_y8mbi"]
+[ext_resource type="Texture2D" uid="uid://dvdssk8gxkmh3" path="res://assets/Inventory.png" id="3_snleu"]
 
 [node name="LobbyScreen" type="Control"]
 layout_mode = 3
@@ -45,6 +48,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 10
 size_flags_stretch_ratio = 0.5
 theme_type_variation = &"Title"
+theme_override_fonts/font = ExtResource("2_y8mbi")
 text = "Screen"
 horizontal_alignment = 1
 
@@ -61,6 +65,14 @@ offset_top = -68.0
 offset_right = -250.0
 offset_bottom = -4.0
 text = "く"
+
+[node name="Sprite2D" type="Sprite2D" parent="MarginContainer2/VBoxContainer/Panel/BackButton"]
+z_index = -1
+position = Vector2(31.999998, 32.5)
+scale = Vector2(4.5000005, 4.35)
+texture = ExtResource("3_snleu")
+region_enabled = true
+region_rect = Rect2(86, 166, 20, 20)
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer2/VBoxContainer"]
 layout_mode = 2
@@ -84,3 +96,9 @@ offset_bottom = 290.0
 grow_horizontal = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(967.00006, 376.49997)
+scale = Vector2(1.1291668, 1.1435183)
+texture = ExtResource("2_684nl")

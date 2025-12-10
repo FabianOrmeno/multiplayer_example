@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://57sil4m6nfve"]
+[gd_scene load_steps=6 format=3 uid="uid://57sil4m6nfve"]
 
 [ext_resource type="Theme" uid="uid://bwgdrcgopd0s1" path="res://lobby/lobby_theme.tres" id="1_bob82"]
 [ext_resource type="Script" uid="uid://cuqvj8grm28qy" path="res://ui/credits.gd" id="2_hvxmk"]
+[ext_resource type="Texture2D" uid="uid://ldqktb8n3xrl" path="res://assets/OldDungeon.png" id="3_mvqlp"]
+[ext_resource type="FontFile" uid="uid://cxrjgo8so6fmx" path="res://assets/Pixelmax-Regular.otf" id="3_s37ls"]
+[ext_resource type="FontFile" uid="uid://cbcegtquroqbe" path="res://assets/unifont.ttf" id="4_httvj"]
 
 [node name="Credits" type="Control"]
 layout_mode = 3
@@ -47,6 +50,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 10
 size_flags_stretch_ratio = 0.5
 theme_type_variation = &"Title"
+theme_override_fonts/font = ExtResource("3_s37ls")
 text = "Credits
 "
 horizontal_alignment = 1
@@ -87,8 +91,16 @@ offset_bottom = 290.0
 grow_horizontal = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_fonts/normal_font = ExtResource("4_httvj")
+theme_override_fonts/bold_font = ExtResource("3_s37ls")
 bbcode_enabled = true
 text = "[center]
 [b]Lobby[/b]
 Elías Zelada
 [/center]"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(967.00006, 376.49997)
+scale = Vector2(1.1291668, 1.1435183)
+texture = ExtResource("3_mvqlp")
