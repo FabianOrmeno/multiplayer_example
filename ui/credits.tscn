@@ -20,6 +20,100 @@ theme_override_fonts/normal_font = ExtResource("3_1bagf")
 theme_override_fonts/bold_font = ExtResource("4_icdkc")
 bbcode_enabled = true
 text = "[center]
+[b]Juego hecho por[/b]
+O.P. Company
+
+[b]Integrantes [/b]
+Nicohylian
+FBP56
+Fabianorar 
+
 [b]Lobby[/b]
 Elías Zelada
+
+[b]Assets[/b]
+[b]ARMAS[/b]
+everlyspixelsandpens (itch.io)
+Espada
+
+Arydian.G7 (itch.io)
+Bastón de Maga
+
+Arydian.G7 (itch.io)
+Arco y Flecha
+
+SnoopethDuckDuck (itch.io)
+Escudo
+
+[b]VFX[/b]
+BDragon1727 (itch.io)
+Explosiones y efectos de flecha
+
+BDragon1727 (itch.io)
+Bola de Fuego y Hielo
+
+William.Thompsonj (OpenGameArt.org)
+Antorchas animadas
+
+[b]Personajes[/b]
+Gif (itch.io)
+Personajes principales
+
+
+Eduardo Scarpato (itch.io)
+Rana Tóxica
+
+[b]Mapas[/b]
+Free Game Assets (itch.io)
+Assets de dungeon (paredes, piso, agua, etc.)
+
+Nnekart (itch.io)
+Cubo de hielo / tileset de hielo
+
+Otterisk (itch.io)
+Balsa de madera y assets de pantalla de créditos[/color][/font_size]
+
+[b]UI[/b]
+Androx (itch.io)
+Barras de vida y GUI
+
+Izon Film (kindpng.com)
+Pergamino (Tab)
+
+Dream Mix (itch.io)
+Tab bajo el agua
+
+DibbelGames (itch.io)
+Exclamación bajo el agua
+
+BDragon1727 (itch.io)
+Simbolo de carga
+
+SeeOne (itch.io)
+Fondo
+
+pixel-boy (itch.io)
+Iconos de jugador
+
+[b]Objetos[/b]
+IoPn (itch.io)
+Diana
+
+FlacHound (itch.io)
+Placas de presión
+
+SciGho (itch.io)
+Monedas de oro
+
+Serial (itch.io)
+Cofres del tesoro[/color][/font_size]
+
+[b]Fuentes[/b]
+Roman Czyborra
+Unifont
+
+Fitrah Type
+Pixelmax
+
 [/center]"
+text_direction = 1
