@@ -3554,7 +3554,7 @@ spawn_path = NodePath(".")
 [node name="Puzzle_Door" type="Node" parent="." node_paths=PackedStringArray("door", "interactables", "enemy")]
 script = ExtResource("12_a8y0u")
 door = NodePath("Door")
-interactables = [NodePath("Torch"), NodePath("Torch2")]
+interactables = [NodePath("Torch"), NodePath("Torch2"), NodePath("Torch3")]
 enemy = NodePath("../Enemy2")
 
 [node name="Torch" parent="Puzzle_Door" instance=ExtResource("11_ya4ey")]
@@ -3562,6 +3562,9 @@ position = Vector2(223, 129)
 
 [node name="Torch2" parent="Puzzle_Door" instance=ExtResource("11_ya4ey")]
 position = Vector2(303, 173)
+
+[node name="Torch3" parent="Puzzle_Door" instance=ExtResource("11_ya4ey")]
+position = Vector2(153, 219)
 
 [node name="Door" parent="Puzzle_Door" instance=ExtResource("12_eb6dy")]
 visibility_layer = 2
@@ -3743,6 +3746,9 @@ position = Vector2(211, 29)
 
 [node name="firecatcher" parent="." instance=ExtResource("17_muem4")]
 position = Vector2(260, 156)
+
+[node name="firecatcher2" parent="." instance=ExtResource("17_muem4")]
+position = Vector2(186, 159)
 
 [node name="Puzzle_Door2" type="Node" parent="." node_paths=PackedStringArray("door", "interactables", "enemy")]
 script = ExtResource("12_a8y0u")
