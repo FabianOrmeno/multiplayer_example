@@ -31,3 +31,7 @@ replication_config = SubResource("SceneReplicationConfig_hmv1p")
 texture = ExtResource("2_q8ifc")
 region_enabled = true
 region_rect = Rect2(32, 20, 16, 7)
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

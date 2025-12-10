@@ -7,6 +7,7 @@ class_name  Bomb_arrow
 @onready var animation_tree: AnimationTree = $AnimationTree
 @onready var playback: AnimationNodeStateMachinePlayback = animation_tree["parameters/playback"]
 @onready var anim_player = $AnimationPlayer
+@onready var timer: Timer = $Timer
 @export var max_speed = 250
 
 
@@ -14,6 +15,8 @@ func _ready() -> void:
 	kaboom.hide()
 	area_2d.hide()
 	damage_dealt.connect(explosion.rpc)
+	timer.wait_time = 1
+	timer.start()
 
 func _physics_process(delta: float) -> void:
 	position += max_speed * transform.x * delta
@@ -47,3 +50,7 @@ func _on_body_entered(body: Node2D):
 		Debug.log("Voy a stunearte")
 		enemy.stun()
 		
+
+
+func _on_timer_timeout() -> void:
+	queue_free()
