@@ -16,5 +16,5 @@ func hide_score() -> void:
 func update_score(add: int) -> void:
 	
 	score += add
-	var new_score = "score: " + str(score)
+	var new_score = "Score: " + str(score)
 	player_score.text = new_score

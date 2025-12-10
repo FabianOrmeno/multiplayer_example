@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://c7k17xqbr2v1n"]
+[gd_scene load_steps=4 format=3 uid="uid://c7k17xqbr2v1n"]
 
 [ext_resource type="Script" uid="uid://b7dop460nvt5k" path="res://autoloads/score.gd" id="1_wl1o4"]
+[ext_resource type="Texture2D" uid="uid://dvdssk8gxkmh3" path="res://assets/Inventory.png" id="2_hkyvv"]
+[ext_resource type="FontFile" uid="uid://cbcegtquroqbe" path="res://assets/unifont.ttf" id="3_jruqx"]
 
 [node name="Score" type="Node"]
 script = ExtResource("1_wl1o4")
@@ -9,11 +11,22 @@ script = ExtResource("1_wl1o4")
 
 [node name="PlayerScore" type="Label" parent="CanvasLayer"]
 unique_name_in_owner = true
+z_index = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -20.0
-offset_right = 20.0
-offset_bottom = 12.0
+offset_left = -26.0
+offset_right = 28.0
+offset_bottom = 22.0
 grow_horizontal = 2
+theme_override_fonts/font = ExtResource("3_jruqx")
 text = "Score: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/PlayerScore"]
+z_index = -1
+position = Vector2(27, 11)
+texture = ExtResource("2_hkyvv")
+region_enabled = true
+region_rect = Rect2(85, 69, 54, 22)
