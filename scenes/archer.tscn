@@ -442,7 +442,7 @@ theme_override_constants/line_separation = -4
 theme_override_constants/paragraph_separation = -4
 theme_override_font_sizes/normal_font_size = 6
 text = "M1 (Click izquierdo)
-Flecha normal: hace daño a enemigos y puede activar switches 
+Flecha normal: hace daño a enemigos y puede golpear dianas
 
 M2 (click derecho)
 Flecha magica: stunea a enemigos y rompe estructuras huecas
