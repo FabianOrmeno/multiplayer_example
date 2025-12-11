@@ -4,7 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://bg8gm2wnlpiof" path="res://assets/antorchas.png" id="2_my26j"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_o2tjn"]
-height = 42.0
+radius = 9.0
+height = 24.0
 
 [sub_resource type="Animation" id="Animation_o2tjn"]
 length = 0.001
@@ -104,6 +105,7 @@ collision_mask = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 light_mask = 5
 visibility_layer = 5
+position = Vector2(0, -4)
 shape = SubResource("CapsuleShape2D_o2tjn")
 debug_color = Color(0.93637705, 0.21527854, 0.34866264, 0.41960785)
 

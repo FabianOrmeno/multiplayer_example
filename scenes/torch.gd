@@ -20,7 +20,7 @@ func _on_body_entered(body: Area2D):
 		lighted = true
 		playback.travel("motion")
 		emit_signal("state",lighted)
-		await get_tree().create_timer(2).timeout
+		await get_tree().create_timer(1.5).timeout
 		lighted = false
 		playback.travel("off")
 		emit_signal("state", lighted)
